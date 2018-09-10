@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1e0ca145c4890ca27bb7a340834d0ab7",
+    "content-hash": "cbaf98f7981a5bb3ab2e2aa7619ab5b1",
     "packages": [
         {
             "name": "barryvdh/laravel-ide-helper",
@@ -431,42 +431,6 @@
                 "performance"
             ],
             "time": "2018-08-31T19:07:57+00:00"
-        },
-        {
-            "name": "devdojo/chatter",
-            "version": "0.2.7",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thedevdojo/chatter.git",
-                "reference": "ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thedevdojo/chatter/zipball/ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61",
-                "reference": "ca1b4d6e76dacbd77867d046f9bdcca0b6a75f61",
-                "shasum": ""
-            },
-            "require-dev": {
-                "illuminate/cache": "~5.1.20|5.2.*|5.3.*",
-                "illuminate/console": "~5.1.20|5.2.*|5.3.*",
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "~5.7.14"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "DevDojo\\Chatter\\": "/src"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "authors": [
-                {
-                    "name": "Tony Lea",
-                    "email": "tony@devdojo.com"
-                }
-            ],
-            "description": "A simple forum package for your laravel app",
-            "time": "2017-03-12T21:13:57+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
