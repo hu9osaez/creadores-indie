@@ -1,6 +1,6 @@
 <?php namespace CreadoresIndie\Http\Controllers\Auth;
 
-use CreadoresIndie\User;
+use CreadoresIndie\Models\User;
 use CreadoresIndie\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -57,7 +57,7 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \CreadoresIndie\User
+     * @return \CreadoresIndie\Models\User
      */
     protected function create(array $data)
     {
