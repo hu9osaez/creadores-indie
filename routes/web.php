@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::group([
+    'namespace' => 'Front'
+], function () {
+    Route::name('front::')->group(function () {
+        Route::get('/', 'HomeController@index')->name('home');
+    });
+});
