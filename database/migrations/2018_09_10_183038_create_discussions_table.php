@@ -19,7 +19,6 @@ class CreateDiscussionsTable extends Migration
             $table->integer('id_user')->unsigned();
             $table->string('title');
             $table->string('slug')->unique()->index();
-            $table->string('color', 20)->nullable()->default('#232629');
             $table->boolean('sticky')->default(false);
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('answered')->default(0);

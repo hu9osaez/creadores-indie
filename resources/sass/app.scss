@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans|Roboto+Condensed:700');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400');
 
 // Variables
 @import 'variables';
@@ -8,10 +8,61 @@
 @import '~bulma/bulma';
 
 body {
-    background-color: #f5f5f5;
+    background-color: #fff;
     font-family: 'Fira Sans', sans-serif;
+    font-weight: 400;
 }
 
 .navbar {
     box-shadow: 0 2px 0 0 #f5f5f5;
+}
+
+.sidebar {
+    .subtitle:not(:last-child) {margin-bottom: .5rem}
+    &__newDiscussion {
+        background-color: #f15c41;
+        border-radius: 20px;
+        color: #fff;
+        display: block;
+        font-weight: 300;
+        margin-bottom: 2.2rem;
+        padding: 7px 0;
+        text-align: center;
+        text-transform: uppercase;
+        &:hover {
+            background-color: darken(#f15c41, 5%);
+            color: #fff;
+            text-decoration: none;
+        }
+    }
+    ul li a {
+        color: #69696f;
+        display: block;
+        padding: 8px 8px 8px 35px;
+        position: relative;
+        &:hover {
+            color: #39393f;
+            font-weight: 700;
+        }
+        .circle {
+            &::before {
+                background-color: #fff;
+                border-radius: 20px;
+                content: '';
+                width: 10px;
+                left: 5px;
+                height: 10px;
+                position: absolute;
+                top: 5px;
+            }
+            border-radius: 20px;
+            float: left;
+            height: 20px;
+            left: 4px;
+            margin-top: -11px;
+            top: 50%;
+            position: absolute;
+            width: 20px;
+        }
+    }
 }

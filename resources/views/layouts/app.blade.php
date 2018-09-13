@@ -15,9 +15,7 @@
 <body>
 @include('front.partials.navbar')
 
-<section class="section">
-    @yield('content')
-</section>
+@yield('content')
 
 @include('front.partials.footer')
 </body>

@@ -1,19 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-body">
-                    @if(auth()->guest())
-                        <p>Invitado</p>
-                    @else
-                        <p>Loggeado</p>
-                    @endif
-                </div>
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-one-fifth">
+                @render('sidebarComponent')
+            </div>
+            <div class="column">
+
             </div>
         </div>
     </div>
-</div>
+</section>
 @endsection

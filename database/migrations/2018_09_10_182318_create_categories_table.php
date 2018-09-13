@@ -18,9 +18,10 @@ class CreateCategoriesTable extends Migration
             $table->integer('id_parent')->unsigned()->nullable();
             $table->integer('order')->default(1);
             $table->string('name');
-            $table->string('color', 20);
-            $table->string('slug');
+            $table->string('color', 20)->default('#232629');
+            $table->string('slug')->unique();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
