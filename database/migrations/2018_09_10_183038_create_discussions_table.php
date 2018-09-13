@@ -18,13 +18,16 @@ class CreateDiscussionsTable extends Migration
             $table->integer('id_category')->unsigned()->default(1);
             $table->integer('id_user')->unsigned();
             $table->string('title');
-            $table->string('slug')->unique()->index();
+            $table->string('slug')->unique();
+            $table->text('body');
             $table->boolean('sticky')->default(false);
             $table->integer('views')->unsigned()->default(0);
             $table->boolean('answered')->default(0);
             $table->timestamp('last_reply_at')->useCurrent();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('slug');
 
             $table->foreign('id_category')->references('id')->on('categories')
                 ->onDelete('cascade')

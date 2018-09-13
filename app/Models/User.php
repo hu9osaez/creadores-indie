@@ -23,4 +23,14 @@ class User extends Authenticatable
     {
         $this->attributes['password'] = bcrypt($pass);
     }
+
+    public function discussions()
+    {
+        return $this->hasMany(Discussion::class, 'id_user');
+    }
+
+    public function replies()
+    {
+        return $this->hasMany(Reply::class, 'id_user');
+    }
 }
