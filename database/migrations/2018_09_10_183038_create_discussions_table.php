@@ -21,8 +21,7 @@ class CreateDiscussionsTable extends Migration
             $table->string('slug')->unique();
             $table->text('body');
             $table->boolean('sticky')->default(false);
-            $table->integer('views')->unsigned()->default(0);
-            $table->boolean('answered')->default(0);
+            $table->integer('replies_count')->unsigned()->default(0);
             $table->timestamp('last_reply_at')->useCurrent();
             $table->timestamps();
             $table->softDeletes();

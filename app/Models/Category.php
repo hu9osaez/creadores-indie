@@ -9,6 +9,11 @@ class Category extends Model
 {
     use HasSlug, SoftDeletes;
 
+    protected $casts = [
+        'bg_color',
+        'text_color'
+    ];
+
     protected $fillable = [
         'order',
         'name',
@@ -20,6 +25,16 @@ class Category extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('name')
             ->saveSlugsTo('slug');
+    }
+
+    public function getBgColorAttribute()
+    {
+        return $this->color;
+    }
+
+    public function getTextColorAttribute()
+    {
+        return getContrastColor($this->color);
     }
 
     public function discussions()

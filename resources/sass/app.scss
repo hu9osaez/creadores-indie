@@ -1,5 +1,5 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400');
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:300,400,700');
 
 // Variables
 @import 'variables';
@@ -65,4 +65,49 @@ body {
             width: 20px;
         }
     }
+}
+
+.dot-separator {
+    display: inline-block;
+    margin: 0 3px;
+    &::before {
+        content: '•';
+        display: block;
+    }
+}
+
+ul.discussions {
+   .discussion {
+       padding: 15px;
+       position: relative;
+       &:first-child { padding-top: 0 }
+       &__title {
+           font-size: 1.2rem;
+           font-weight: 700;
+       }
+       &__excerpt {
+           color: $grey;
+           font-size: .9rem;
+           font-weight: 300;
+           margin-top: 5px;
+       }
+       &__details {
+           display: block;
+           font-size: .8rem;
+           &__category {
+               background-color: lightgray;
+               border-radius: 5px;
+               display: inline-block;
+               font-size: .7rem;
+               margin-right: 5px;
+               padding: 2px 8px;
+               text-align: center;
+           }
+           &__user {
+               a {
+                   border-bottom: 1px dotted lightgray;
+               }
+           }
+       }
+   }
 }

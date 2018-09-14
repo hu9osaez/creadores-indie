@@ -2,12 +2,17 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Str;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Discussion extends Model
 {
     use HasSlug, SoftDeletes;
+
+    protected $appends = [
+        'excerpt'
+    ];
 
     protected $dates = [
         'deleted_at',
@@ -19,6 +24,11 @@ class Discussion extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function getExcerptAttribute()
+    {
+        return Str::words($this->body, 20);
     }
 
     public function category()
