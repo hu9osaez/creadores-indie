@@ -27,6 +27,13 @@ class Category extends Model
             ->saveSlugsTo('slug');
     }
 
+    public function getElAttribute()
+    {
+        return html()->a(route('front::category.show', $this->slug), $this->name)
+            ->class('discussion__details__category')
+            ->style("background-color: {$this->bg_color}; color: {$this->text_color}");
+    }
+
     public function getBgColorAttribute()
     {
         return $this->color;

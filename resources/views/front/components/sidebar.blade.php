@@ -6,7 +6,7 @@
     <ul>
     @foreach($categories as $category)
         <li>
-            <a href="#">
+            <a href="{{ route('front::category.show', $category->slug) }}">
                 <span class="circle" style="background-color: {{ $category->color }}"></span>
                 {{ $category->name }}
             </a>

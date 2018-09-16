@@ -11,6 +11,7 @@ class User extends Authenticatable
     protected $fillable = [
         'name',
         'email',
+        'username',
         'password',
     ];
 
@@ -18,6 +19,11 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    public function getUrlAttribute()
+    {
+        return route('front::user.show', $this->username);
+    }
 
     public function setPasswordAttribute($pass)
     {

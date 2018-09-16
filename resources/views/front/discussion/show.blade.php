@@ -5,10 +5,10 @@
     <div class="container">
         <div class="columns">
             <div class="column is-one-fifth">
-                @render('sidebarComponent')
+
             </div>
             <div class="column">
-                @include('front.partials.loop-discussions')
+                <h2>{{ $discussion->title }}</h2>
             </div>
         </div>
     </div>

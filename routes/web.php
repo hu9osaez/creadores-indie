@@ -20,5 +20,10 @@ Route::group([
 ], function () {
     Route::name('front::')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
+
+        Route::get('@{username}', 'UserController@show')->name('user.show');
+
+        Route::get('{category}', 'CategoryController@show')->name('category.show');
+        Route::get('{category}/{slug}', 'DiscussionController@show')->name('discussion.show');
     });
 });

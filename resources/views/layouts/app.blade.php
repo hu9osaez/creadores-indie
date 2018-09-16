@@ -9,7 +9,9 @@
 
     <title>{{ config('app.name') }}</title>
 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.2/css/ionicons.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
     <script src="{{ asset('js/app.js') }}" defer></script>
 </head>
 <body>

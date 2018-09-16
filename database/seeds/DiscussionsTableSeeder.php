@@ -14,12 +14,14 @@ class DiscussionsTableSeeder extends Seeder
      */
     public function run()
     {
-        $category = Category::whereSlug('general')->first();
+        $categories = Category::all();
         $user = User::whereEmail('hu9osaez@gmail.com')->first();
 
-        factory(Discussion::class, 5)
+        factory(Discussion::class, 50)
             ->make()
-            ->each(function (Discussion $discussion) use ($category, $user) {
+            ->each(function (Discussion $discussion) use ($categories, $user) {
+                $category = $categories->random();
+
                 $discussion->category()->associate($category);
                 $discussion->user()->associate($user);
                 $discussion->save();
