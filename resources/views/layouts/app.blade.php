@@ -7,7 +7,11 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name') }}</title>
+    @hasSection('title')
+        <title>@yield('title') - {{ config('app.name') }} &#128736;&#128640;</title>
+    @else
+        <title>{{ config('app.name') }} &#128736;&#128640;</title>
+    @endif
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.2/css/ionicons.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">

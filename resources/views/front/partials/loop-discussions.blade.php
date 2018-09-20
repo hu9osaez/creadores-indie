@@ -7,7 +7,10 @@
         <div class="discussion__content">
             <a class="discussion__title" href="{{ $discussion->url }}">{{ $discussion->title }}</a>
             <div class="discussion__details">
-                {{ $discussion->category->el }}
+                {{ html()->a(route('front::category.show', $discussion->category->slug), $discussion->category->name)
+                        ->class('discussion__details__category')
+                        ->style("background-color: {$discussion->category->bg_color}; color: {$discussion->category->text_color}")
+                }}
                 <span class="discussion__details__user">
                     Por <a href="{{ $discussion->user->url }}">{{ $discussion->user->name }}</a>
                 </span>

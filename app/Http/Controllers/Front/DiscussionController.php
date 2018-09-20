@@ -7,13 +7,17 @@ class DiscussionController extends Controller
 {
     public function show($category, $slug)
     {
-        $discussion = Discussion::with(['category', 'user'])
+        $discussion = Discussion::with(['category', 'user', 'replies.user'])
             ->whereHas('category', function ($query) use ($category) {
                 $query->where('slug', '=', $category);
             })
             ->whereSlug($slug)
             ->firstOrFail();
 
-        return view('front.discussion.show', compact('discussion'));
+        $category = $discussion->category;
+        $user = $discussion->user;
+        $replies = $discussion->replies;
+
+        return view('front.discussion.show', compact('category', 'discussion', 'user', 'replies'));
     }
 }

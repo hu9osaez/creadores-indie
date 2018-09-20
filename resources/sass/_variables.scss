@@ -1,6 +1,13 @@
 $black: #000000;
 
-$primary: #FE7E47;
+$primary: #f15c41;
 $link: $black;
 
 $navbar-height: 3.6rem;
+
+//$widescreen-enabled: false;
+$fullhd-enabled: false;
+
+// Update some of Bulma's component variables
+$control-border-width: 2px;
+$input-shadow: none;

@@ -1,15 +1,16 @@
 <?php namespace CreadoresIndie\Models;
 
-use Carbon\Carbon;
+use CreadoresIndie\Traits\Shareable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Markdown;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Discussion extends Model
 {
-    use HasSlug, SoftDeletes;
+    use HasSlug, Shareable, SoftDeletes;
 
     protected $appends = [
         'excerpt',
@@ -21,6 +22,13 @@ class Discussion extends Model
         'last_reply_at'
     ];
 
+    protected $shareOptions = [
+        'columns' => [
+            'title' => 'title'
+        ],
+        'url' => 'url'
+    ];
+
     public function getSlugOptions() : SlugOptions
     {
         return SlugOptions::create()
@@ -28,10 +36,7 @@ class Discussion extends Model
             ->saveSlugsTo('slug');
     }
 
-    public function getUrlAttribute()
-    {
-        return route('front::discussion.show', [$this->category->slug, $this->slug]);
-    }
+    /** Custom attributes */
 
     public function getExcerptAttribute()
     {
@@ -43,11 +48,27 @@ class Discussion extends Model
         return $this->created_at->format('d-m-Y H:i');
     }
 
+    public function getHumanDateAltAttribute()
+    {
+        return $this->created_at->format('d M, Y');
+    }
+
+    public function getParsedBodyAttribute()
+    {
+        return Markdown::convertToHtml($this->body);
+    }
+
     public function getRelativeDateAttribute()
     {
         return $this->created_at->diffForHumans();
     }
 
+    public function getUrlAttribute()
+    {
+        return route('front::discussion.show', [$this->category->slug, $this->slug]);
+    }
+
+    /** Relations **/
     public function category()
     {
         return $this->belongsTo(Category::class, 'id_category');

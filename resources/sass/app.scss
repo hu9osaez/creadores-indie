@@ -13,7 +13,20 @@ body {
     font-weight: 400;
 }
 
-.navbar { box-shadow: 0 2px 0 0 #f5f5f5 }
+.navbar {
+    box-shadow: 0 2px 0 0 #f5f5f5;
+    .btn-register {
+        display: inline-flex;
+        background-color: #232629;
+        color: #fff;
+        border-radius: 3px;
+        padding: .25em 1.5em;
+        transition: background .2s ease-in-out;
+        &:hover {
+            background-color: lighten(#232629, 5%);
+        }
+    }
+}
 
 .sidebar {
     .subtitle:not(:last-child) { margin-bottom: .5rem }
@@ -27,6 +40,7 @@ body {
         padding: 7px 0;
         text-align: center;
         text-transform: uppercase;
+        transition: background .2s ease-in-out;
         &:hover {
             background-color: darken(#f15c41, 5%);
             color: #fff;
@@ -71,6 +85,71 @@ body {
     &::before {
         content: '•';
         display: block;
+    }
+}
+
+.singleDiscussion {
+    border-bottom: 2px solid $grey-lighter;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    &__head {
+        display: flex;
+        align-content: space-between;
+        margin-bottom: 20px;
+        &__category {
+            flex: 1;
+            span {
+                color: $grey-dark;
+                font-size: .8rem;
+                padding: 2px 0;
+                margin-right: 3px;
+            }
+            a {
+                background-color: lightgray;
+                border-radius: 5px;
+                display: inline-block;
+                font-size: .7rem;
+                padding: 2px 8px;
+                text-align: center;
+            }
+        }
+        &__date {
+            flex: 1;
+            text-align: right;
+            span {
+                font-size: .8rem;
+                color: $grey;
+            }
+        }
+    }
+    &__title {
+        font-size: 2rem;
+        font-weight: 700;
+        margin-bottom: .8rem;
+    }
+    &__content {
+        font-size: 1.1rem;
+    }
+}
+
+.category-viewing {
+    background-color: #f5f7ff;
+    padding: 10px 20px;
+    color: #858d98;
+    display: inline-block;
+    border-radius: 40px;
+    font-size: 12px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &__circle {
+        background-color: #f5f7ff;
+        width: 12px;
+        height: 12px;
+        float: left;
+        border-radius: 15px;
+        margin-top: 3px;
+        margin-right: 5px;
     }
 }
 
@@ -120,4 +199,79 @@ ul.discussions {
            &__replies i { color: $grey }
        }
    }
+}
+
+.repliesBox {
+    &__guest {
+        background: #e9e9e9;
+        border-radius: 3px;
+        padding: 15px;
+    }
+    &__list {
+        margin-top: 1rem;
+        .avatar {
+            border: 2px solid #e3dede;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+        }
+    }
+    &__form {
+        &__format ul {
+            list-style-type: disc;
+            margin-top: .5rem;
+            padding-left: 18px;
+            li {
+                font-size: .8rem;
+            }
+        }
+    }
+}
+
+.widget {
+    background-color: white;
+    border-radius: 6px;
+    border: 2px solid $grey-lighter;
+    display: block;
+    &__body {
+        padding: 1rem;
+    }
+    &__user {
+        display: inline-block;
+        padding: .5rem;
+        transition: all 250ms;
+        vertical-align: middle;
+        width: 100%;
+        &:hover img {
+            border-color: darken(#e3dede, 5%);
+        }
+        a {
+            display: flex;
+            height: 45px;
+            width: 100%;
+            img {
+                border: 2px solid #e3dede;
+                border-radius: 50%;
+                float: left;
+                margin-left: 5px;
+                margin-right: 15px;
+                height: 45px;
+                width: 45px;
+            }
+            .content {
+                .username {
+                    color: $grey-dark;
+                    display: block;
+                    font-size: .9rem;
+                }
+            }
+        }
+        .details {
+            border-top: 1px solid #eaecef;
+            color: $grey-light;
+            font-size: .8rem;
+            padding: 10px 0 0 5px;
+            margin-top: 10px;
+        }
+    }
 }

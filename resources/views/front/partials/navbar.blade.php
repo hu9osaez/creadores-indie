@@ -19,7 +19,9 @@
 
                 @guest
                 <a href="{{ route('login') }}" class="navbar-item">Iniciar sesión</a>
-                <a href="{{ route('register') }}" class="navbar-item">Crear cuenta</a>
+                <div class="navbar-item">
+                    <a href="{{ route('register') }}" class="btn-register">Crear cuenta</a>
+                </div>
                 @endguest
             </div>
         </div>
