@@ -25,6 +25,11 @@ class User extends Authenticatable
         return route('front::user.show', $this->username);
     }
 
+    public function getUsernamePublicAttribute()
+    {
+        return "@{$this->username}";
+    }
+
     public function setPasswordAttribute($pass)
     {
         $this->attributes['password'] = bcrypt($pass);

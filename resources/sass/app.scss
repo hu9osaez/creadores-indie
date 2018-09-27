@@ -89,8 +89,6 @@ body {
 }
 
 .singleDiscussion {
-    border-bottom: 2px solid $grey-lighter;
-    padding-bottom: 20px;
     margin-bottom: 20px;
     &__head {
         display: flex;
@@ -212,11 +210,12 @@ ul.discussions {
         .avatar {
             border: 2px solid #e3dede;
             border-radius: 50%;
-            height: 50px;
-            width: 50px;
+            height: 35px;
+            width: 35px;
         }
     }
     &__form {
+        padding: 1rem;
         &__format ul {
             list-style-type: disc;
             margin-top: .5rem;

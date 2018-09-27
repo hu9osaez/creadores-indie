@@ -36,9 +36,9 @@
                                 <span>Formateo de texto</span>
                             </div>
                             <ul>
-                                <li>Negrita</li>
-                                <li>Italico</li>
-                                <li>Subrayada</li>
+                                <li><strong>**Negrita**</strong></li>
+                                <li><em>*Cursiva*</em></li>
+                                <li>__Subrayado__</li>
                                 <li>Links automaticos</li>
                             </ul>
                         </div>
@@ -47,6 +47,32 @@
                 {{ html()->form()->close() }}
             </div>
             @endauth
+
+
+            @if($replies->isNotEmpty())
+            <div class="repliesBox__list">
+                @foreach($replies as $reply)
+                <div class="media">
+                    <figure class="media-left">
+                        <img class="avatar" src="{{ $reply->user->avatar }}">
+                    </figure>
+                    <div class="media-content">
+                        <p>
+                            <a href="{{ $reply->user->url }}">
+                                <strong>{{ $reply->user->name }}</strong> <small>{{ $reply->user->username_public }}</small>
+                            </a>
+                        </p>
+                        <div class="content">
+                            {!! $reply->body !!}
+                        </div>
+                    </div>
+                    <div class="media-right">
+                        <small class="has-text-grey">{{ $reply->relative_date }}</small>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            @endif
         </div>
     </div>
 </div>

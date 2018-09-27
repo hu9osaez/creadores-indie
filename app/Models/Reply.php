@@ -11,6 +11,11 @@ class Reply extends Model
         'body'
     ];
 
+    public function getRelativeDateAttribute()
+    {
+        return $this->created_at->diffForHumans();
+    }
+
     public function discussion()
     {
         return $this->belongsTo(Discussion::class, 'id_discussion');
