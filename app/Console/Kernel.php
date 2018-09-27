@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Console;
 
+use CreadoresIndie\Console\Commands\RecountReplies;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -10,7 +11,9 @@ class Kernel extends ConsoleKernel
      *
      * @var array
      */
-    protected $commands = [];
+    protected $commands = [
+        RecountReplies::class
+    ];
 
     /**
      * Define the application's command schedule.

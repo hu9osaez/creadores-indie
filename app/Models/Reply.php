@@ -7,6 +7,10 @@ class Reply extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = [
+        'body'
+    ];
+
     public function discussion()
     {
         return $this->belongsTo(Discussion::class, 'id_discussion');

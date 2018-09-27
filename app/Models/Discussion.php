@@ -22,6 +22,12 @@ class Discussion extends Model
         'last_reply_at'
     ];
 
+    protected $fillable = [
+        'title',
+        'body',
+        'replies_count'
+    ];
+
     protected $shareOptions = [
         'columns' => [
             'title' => 'title'

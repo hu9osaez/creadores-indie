@@ -2,6 +2,7 @@
 
 use CreadoresIndie\Models\Category;
 use CreadoresIndie\Models\Discussion;
+use CreadoresIndie\Models\Reply;
 use CreadoresIndie\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -25,6 +26,14 @@ class DiscussionsTableSeeder extends Seeder
                 $discussion->category()->associate($category);
                 $discussion->user()->associate($user);
                 $discussion->save();
+
+                factory(Reply::class, rand(1, 10))
+                    ->make()
+                    ->each(function (Reply $reply) use($discussion, $user) {
+                        $reply->discussion()->associate($discussion);
+                        $reply->user()->associate($user);
+                        $reply->save();
+                    });
             });
     }
 }

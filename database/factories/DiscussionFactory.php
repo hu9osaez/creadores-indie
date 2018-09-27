@@ -8,3 +8,9 @@ $factory->define(CreadoresIndie\Models\Discussion::class, function (Faker $faker
         'body' => $faker->paragraphs(rand(1, 4), true)
     ];
 });
+
+$factory->define(CreadoresIndie\Models\Reply::class, function (Faker $faker) {
+    return [
+        'body' => $faker->paragraphs(rand(1, 2), true)
+    ];
+});
