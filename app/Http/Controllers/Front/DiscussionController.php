@@ -1,6 +1,8 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
 use CreadoresIndie\Http\Controllers\Controller;
+use CreadoresIndie\Http\Requests\PublishDiscussionRequest;
+use CreadoresIndie\Models\Category;
 use CreadoresIndie\Models\Discussion;
 
 class DiscussionController extends Controller
@@ -19,5 +21,42 @@ class DiscussionController extends Controller
         $replies = $discussion->replies->sortByDesc('created_at');
 
         return view('front.discussion.show', compact('category', 'discussion', 'user', 'replies'));
+    }
+
+    public function create()
+    {
+        $categories = Category::orderBy('name')->get()->pluck('name', 'slug');
+
+        return view('front.discussion.create', compact('categories'));
+    }
+
+    public function store(PublishDiscussionRequest $request)
+    {
+        $category = Category::whereSlug($request->category)->firstOrFail();
+
+        /** @var \CreadoresIndie\Models\User $user */
+        $user = auth()->user();
+
+        $newDiscussion = new Discussion();
+        $newDiscussion->title = $request->title;
+        $newDiscussion->body = $request->body;
+
+        $newDiscussion->category()->associate($category);
+        $newDiscussion->user()->associate($user);
+
+        if($newDiscussion->save()) {
+            return redirect()
+                ->route('front::discussion.show', [$category->slug, $newDiscussion->slug])
+                ->with([
+                    'message' => 'El tema fue publicado correctamente.',
+                    'message_type' => 'is-success'
+                ]);
+        }
+        else {
+            return redirect()->back()->with([
+                'message' => 'Ocurrío un problema al publicar el tema, intenta nuevamente.',
+                'message_type' => 'is-danger'
+            ]);
+        }
     }
 }

@@ -21,6 +21,9 @@ Route::group([
     Route::name('front::')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
 
+        Route::get('new', 'DiscussionController@create')->name('discussion.create');
+        Route::post('new', 'DiscussionController@store')->name('discussion.store');
+
         Route::get('@{username}', 'UserController@show')->name('user.show');
 
         Route::get('{category}', 'CategoryController@show')->name('category.show');

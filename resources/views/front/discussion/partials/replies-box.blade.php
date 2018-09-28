@@ -14,7 +14,7 @@
             @auth
             <div class="repliesBox__form">
 
-                @if(session()->has('message'))
+                @if(session()->has('message') && session()->pull('is-reply'))
                 <div class="message {{ session()->get('message_type') }}">
                     <p class="message-body">{!! session()->pull('message') !!}</p>
                 </div>

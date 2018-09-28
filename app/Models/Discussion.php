@@ -46,7 +46,9 @@ class Discussion extends Model
 
     public function getExcerptAttribute()
     {
-        return Str::words($this->body, 20);
+        $body = strip_tags(Markdown::convertToHtml($this->body));
+
+        return Str::words($body, 20);
     }
 
     public function getHumanDateAttribute()
@@ -62,9 +64,9 @@ class Discussion extends Model
     public function getParsedBodyAttribute()
     {
         $body = Markdown::convertToHtml($this->body);
-        $body = preg_replace(
+        /**$body = preg_replace(
             '/((http)+(s)?:\/\/[^<>\s]+)/i',
-            '<a href="$0" target="_blank" rel="nofollow">$0</a>', $body);
+            '<a href="$0" target="_blank" rel="nofollow">$0</a>', $body);**/
 
         return $body;
     }

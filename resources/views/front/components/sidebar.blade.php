@@ -1,5 +1,5 @@
 <div class="sidebar">
-    <a class="sidebar__newDiscussion" href="#">
+    <a class="sidebar__newDiscussion" href="{{ route('front::discussion.create') }}">
         Crear nuevo tema
     </a>
     <p class="subtitle is-5 has-text-grey-light">Categorías</p>

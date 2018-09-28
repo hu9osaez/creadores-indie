@@ -39,7 +39,8 @@ class ReplyController extends Controller
         } else {
             return redirect()->back()->with([
                 'message' => 'Ocurrío un problema al publicar el comentario, intenta nuevamente.',
-                'message_type' => 'is-danger'
+                'message_type' => 'is-danger',
+                'is-reply' => true
             ]);
         }
     }
