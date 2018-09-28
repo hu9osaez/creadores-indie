@@ -25,5 +25,6 @@ Route::group([
 
         Route::get('{category}', 'CategoryController@show')->name('category.show');
         Route::get('{category}/{slug}', 'DiscussionController@show')->name('discussion.show');
+        Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
     });
 });

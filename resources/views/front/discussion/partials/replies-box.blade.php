@@ -13,12 +13,12 @@
 
             @auth
             <div class="repliesBox__form">
-                {{ html()->form()->open() }}
+                {{ html()->form('POST', route('front::reply.store', [$category->slug, $discussion->slug]))->open() }}
                 <div class="columns">
                     <div class="column">
                         <div class="field">
                             <div class="control">
-                                {{ html()->textarea('reply')->class('textarea')->required() }}
+                                {{ html()->textarea('body')->class('textarea')->required() }}
                             </div>
                         </div>
                         <div class="field">

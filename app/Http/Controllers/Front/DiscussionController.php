@@ -16,7 +16,7 @@ class DiscussionController extends Controller
 
         $category = $discussion->category;
         $user = $discussion->user;
-        $replies = $discussion->replies;
+        $replies = $discussion->replies->sortByDesc('created_at');
 
         return view('front.discussion.show', compact('category', 'discussion', 'user', 'replies'));
     }
