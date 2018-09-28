@@ -14,7 +14,7 @@
                             {{ html()->label('Categoría', 'category')->class('label') }}
                             <div class="control has-text-centered">
                                 <div class="select">
-                                    {{ html()->select('category', $categories, old('category'))
+                                    {{ html()->select('category', $categories, is_null($selectedCategory) ? old('category') : $selectedCategory)
                                         ->placeholder('Seleccione una categoría')
                                         ->required()
                                     }}

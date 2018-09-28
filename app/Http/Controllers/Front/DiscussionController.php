@@ -26,8 +26,9 @@ class DiscussionController extends Controller
     public function create()
     {
         $categories = Category::orderBy('name')->get()->pluck('name', 'slug');
+        $selectedCategory = request()->query('c');
 
-        return view('front.discussion.create', compact('categories'));
+        return view('front.discussion.create', compact('categories', 'selectedCategory'));
     }
 
     public function store(PublishDiscussionRequest $request)
