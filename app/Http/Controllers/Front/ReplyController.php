@@ -30,7 +30,12 @@ class ReplyController extends Controller
 
             //event(new ReplyCreated($newReply));
 
-            return redirect()->route('front::discussion.show', [$category->slug, $discussion->slug]);
+            return redirect()
+                ->route('front::discussion.show', [$category->slug, $discussion->slug])
+                ->with([
+                    'message' => 'Comentario agregado correctamente.',
+                    'message_type' => 'is-success'
+                ]);
         } else {
             return redirect()->back()->with([
                 'message' => 'Ocurrío un problema al publicar el comentario, intenta nuevamente.',

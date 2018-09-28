@@ -13,12 +13,19 @@
 
             @auth
             <div class="repliesBox__form">
+
+                @if(session()->has('message'))
+                <div class="message {{ session()->get('message_type') }}">
+                    <p class="message-body">{!! session()->pull('message') !!}</p>
+                </div>
+                @endif
+
                 {{ html()->form('POST', route('front::reply.store', [$category->slug, $discussion->slug]))->open() }}
                 <div class="columns">
                     <div class="column">
                         <div class="field">
                             <div class="control">
-                                {{ html()->textarea('body')->class('textarea')->required() }}
+                                {{ html()->textarea('body')->class('textarea')->attribute('rows', 3)->required() }}
                             </div>
                         </div>
                         <div class="field">
@@ -38,7 +45,6 @@
                             <ul>
                                 <li><strong>**Negrita**</strong></li>
                                 <li><em>*Cursiva*</em></li>
-                                <li>__Subrayado__</li>
                                 <li>Links automaticos</li>
                             </ul>
                         </div>
@@ -63,7 +69,7 @@
                             </a>
                         </p>
                         <div class="content">
-                            {!! $reply->body !!}
+                            {!! $reply->parsed_body !!}
                         </div>
                     </div>
                     <div class="media-right">

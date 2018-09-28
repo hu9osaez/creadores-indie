@@ -61,7 +61,12 @@ class Discussion extends Model
 
     public function getParsedBodyAttribute()
     {
-        return Markdown::convertToHtml($this->body);
+        $body = Markdown::convertToHtml($this->body);
+        $body = preg_replace(
+            '/((http)+(s)?:\/\/[^<>\s]+)/i',
+            '<a href="$0" target="_blank" rel="nofollow">$0</a>', $body);
+
+        return $body;
     }
 
     public function getRelativeDateAttribute()

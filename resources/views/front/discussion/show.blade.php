@@ -41,8 +41,8 @@
                         </div>
                     </div>
                     <h2 class="singleDiscussion__title">{{ $discussion->title }}</h2>
-                    <div class="singleDiscussion__content">
-                        {{ $discussion->body }}
+                    <div class="singleDiscussion__content content">
+                        {!! $discussion->parsed_body !!}
                     </div>
                 </div>
                 @include('front.discussion.partials.replies-box')

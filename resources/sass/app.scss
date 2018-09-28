@@ -28,6 +28,10 @@ body {
     }
 }
 
+.content blockquote {
+    padding: .8em 1em;
+}
+
 .sidebar {
     .subtitle:not(:last-child) { margin-bottom: .5rem }
     &__newDiscussion {

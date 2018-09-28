@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Markdown;
 
 class Reply extends Model
 {
@@ -10,6 +11,16 @@ class Reply extends Model
     protected $fillable = [
         'body'
     ];
+
+    public function getParsedBodyAttribute()
+    {
+        $body = Markdown::convertToHtml($this->body);
+        $body = preg_replace(
+            '/((http)+(s)?:\/\/[^<>\s]+)/i',
+            '<a href="$0" target="_blank" rel="nofollow">$0</a>', $body);
+
+        return $body;
+    }
 
     public function getRelativeDateAttribute()
     {
