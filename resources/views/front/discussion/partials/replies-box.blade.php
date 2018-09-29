@@ -1,3 +1,29 @@
+@push('custom-css')
+<link href="{{ asset('3rdparty/trumbowyg/ui/trumbowyg.min.css') }}" rel="stylesheet" />
+@endpush
+
+@push('custom-js')
+<script src="{{ asset('3rdparty/trumbowyg/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('3rdparty/trumbowyg/trumbowyg.es.min.js') }}"></script>
+<script>
+    $(document).ready(function () {
+        $('#editor').trumbowyg({
+            lang: 'es',
+            autogrow: true,
+            minimalLinks: true,
+            removeformatPasted: true,
+            resetCss: true,
+            semantic: true,
+            btns: [
+                ['strong', 'em', 'underline', 'del'],
+                ['blockquote'],
+                ['link', 'insertImage']
+            ]
+        });
+    });
+</script>
+@endpush
+
 <div class="widget">
     <div class="widget__body">
         <div class="repliesBox">
@@ -14,6 +40,8 @@
             @auth
             <div class="repliesBox__form">
 
+                <p class="subtitle is-5">Dejar un comentario</p>
+
                 @if(session()->has('message') && session()->pull('is-reply'))
                 <div class="message {{ session()->get('message_type') }}">
                     <p class="message-body">{!! session()->pull('message') !!}</p>
@@ -21,33 +49,14 @@
                 @endif
 
                 {{ html()->form('POST', route('front::reply.store', [$category->slug, $discussion->slug]))->open() }}
-                <div class="columns">
-                    <div class="column">
-                        <div class="field">
-                            <div class="control">
-                                {{ html()->textarea('body')->class('textarea')->attribute('rows', 3)->required() }}
-                            </div>
-                        </div>
-                        <div class="field">
-                            <div class="control">
-                                <button type="submit" class="button is-primary">
-                                    Publicar comentario
-                                </button>
-                            </div>
-                        </div>
+                <div class="field">
+                    <div class="control">
+                        {{ html()->textarea('body')->class('textarea')->id('editor')->required() }}
                     </div>
-                    <div class="column is-one-quarter">
-                        <div class="repliesBox__form__format">
-                            <div class="tag is-dark is-fullwidth">
-                                <i class="icon ion-md-color-wand"></i>
-                                <span>Formateo de texto</span>
-                            </div>
-                            <ul>
-                                <li><strong>**Negrita**</strong></li>
-                                <li><em>*Cursiva*</em></li>
-                                <li>Links automaticos</li>
-                            </ul>
-                        </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary is-outlined">Publicar</button>
                     </div>
                 </div>
                 {{ html()->form()->close() }}

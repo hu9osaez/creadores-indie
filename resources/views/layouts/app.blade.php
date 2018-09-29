@@ -15,8 +15,7 @@
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.2/css/ionicons.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    @stack('custom-css')
 </head>
 <body>
 @include('front.partials.navbar')
@@ -24,5 +23,8 @@
 @yield('content')
 
 @include('front.partials.footer')
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+@stack('custom-js')
 </body>
 </html>

@@ -4,7 +4,6 @@ use CreadoresIndie\Traits\Shareable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
-use Markdown;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
@@ -46,7 +45,11 @@ class Discussion extends Model
 
     public function getExcerptAttribute()
     {
-        $body = strip_tags(Markdown::convertToHtml($this->body));
+        $pattern = '/<p(.*?)>((.*?)+)\<\/p>/';
+        $replacement = '${2} ';
+        $out = preg_replace($pattern, $replacement, $this->body);
+
+        $body = strip_tags($out);
 
         return Str::words($body, 20);
     }
@@ -63,12 +66,7 @@ class Discussion extends Model
 
     public function getParsedBodyAttribute()
     {
-        $body = Markdown::convertToHtml($this->body);
-        /**$body = preg_replace(
-            '/((http)+(s)?:\/\/[^<>\s]+)/i',
-            '<a href="$0" target="_blank" rel="nofollow">$0</a>', $body);**/
-
-        return $body;
+        return $this->body;
     }
 
     public function getRelativeDateAttribute()

@@ -1,10 +1,36 @@
 @extends('layouts.app')
 
+@push('custom-css')
+<link href="{{ asset('3rdparty/trumbowyg/ui/trumbowyg.min.css') }}" rel="stylesheet" />
+@endpush
+
+@push('custom-js')
+<script src="{{ asset('3rdparty/trumbowyg/trumbowyg.min.js') }}"></script>
+<script src="{{ asset('3rdparty/trumbowyg/trumbowyg.es.min.js') }}"></script>
+<script>
+$(document).ready(function () {
+    $('#editor').trumbowyg({
+        lang: 'es',
+        autogrow: true,
+        minimalLinks: true,
+        removeformatPasted: true,
+        resetCss: true,
+        semantic: true,
+        btns: [
+            ['strong', 'em', 'underline', 'del'],
+            ['blockquote'],
+            ['link', 'insertImage']
+        ]
+    });
+});
+</script>
+@endpush
+
 @section('content')
 <section class="section">
     <div class="container">
         <div class="columns is-centered">
-            <div class="column is-8">
+            <div class="column is-7">
                 <div class="widget">
                     <div class="widget__body">
                         <h3 class="title is-4 has-text-dark has-text-centered">Crear nuevo tema</h3>
@@ -27,27 +53,9 @@
                                 {{ html()->text('title', old('title'))->class('input')->required() }}
                             </div>
                         </div>
-                        <br />
-                        <div class="columns">
-                            <div class="column">
-                                <div class="field">
-                                    <div class="control">
-                                        {{ html()->textarea('body', old('body'))->class('textarea')->required() }}
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="column is-one-quarter">
-                                <div class="repliesBox__form__format">
-                                    <div class="tag is-dark is-fullwidth">
-                                        <i class="icon ion-md-color-wand"></i>
-                                        <span>Formateo de texto</span>
-                                    </div>
-                                    <ul>
-                                        <li><strong>**Negrita**</strong></li>
-                                        <li><em>*Cursiva*</em></li>
-                                        <li>Links automaticos</li>
-                                    </ul>
-                                </div>
+                        <div class="field">
+                            <div class="control">
+                                {{ html()->textarea('body', old('body'))->class('textarea')->id('editor')->required() }}
                             </div>
                         </div>
                         <div class="field">

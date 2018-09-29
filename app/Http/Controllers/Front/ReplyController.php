@@ -4,6 +4,7 @@ use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Http\Requests\PublishReplyRequest;
 use CreadoresIndie\Models\Discussion;
 use CreadoresIndie\Models\Reply;
+use Purifier;
 
 class ReplyController extends Controller
 {
@@ -21,7 +22,7 @@ class ReplyController extends Controller
         $category = $discussion->category;
 
         $newReply = new Reply();
-        $newReply->body = $request->body;
+        $newReply->body = Purifier::clean($request->body);
         $newReply->discussion()->associate($discussion);
         $newReply->user()->associate($user);
 

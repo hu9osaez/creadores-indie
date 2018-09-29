@@ -4,6 +4,7 @@ use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Http\Requests\PublishDiscussionRequest;
 use CreadoresIndie\Models\Category;
 use CreadoresIndie\Models\Discussion;
+use Purifier;
 
 class DiscussionController extends Controller
 {
@@ -40,7 +41,7 @@ class DiscussionController extends Controller
 
         $newDiscussion = new Discussion();
         $newDiscussion->title = $request->title;
-        $newDiscussion->body = $request->body;
+        $newDiscussion->body = Purifier::clean($request->body);
 
         $newDiscussion->category()->associate($category);
         $newDiscussion->user()->associate($user);

@@ -218,17 +218,6 @@ ul.discussions {
             width: 35px;
         }
     }
-    &__form {
-        padding: 1rem;
-        &__format ul {
-            list-style-type: disc;
-            margin-top: .5rem;
-            padding-left: 18px;
-            li {
-                font-size: .8rem;
-            }
-        }
-    }
 }
 
 .widget {
@@ -278,3 +267,5 @@ ul.discussions {
         }
     }
 }
+
+.trumbowyg-box, .trumbowyg-editor { min-height: 120px!important }
