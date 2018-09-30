@@ -15,9 +15,11 @@
         "laravel/tinker": "^1.0",
         "mews/purifier": "^2.1",
         "overtrue/laravel-lang": "~3.0",
+        "spatie/laravel-activitylog": "^2.8",
         "spatie/laravel-html": "^2.19",
         "spatie/laravel-sluggable": "^2.1",
-        "spatie/laravel-view-components": "^1.1"
+        "spatie/laravel-view-components": "^1.1",
+        "whichbrowser/parser": "^2.0"
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
