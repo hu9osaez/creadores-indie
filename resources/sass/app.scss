@@ -275,6 +275,14 @@ ul.discussions {
 
 .trumbowyg-box, .trumbowyg-editor { min-height: 120px!important }
 
+.field-recaptcha {
+    text-align: center;
+}
+
+.g-recaptcha {
+    display: inline-block;
+}
+
 footer {
     border-top: 1px solid lighten($grey-lighter, 7%);
     display: block;

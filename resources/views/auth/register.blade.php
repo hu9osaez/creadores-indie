@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('custom-js')
+    {!! NoCaptcha::renderJs('es') !!}
+@endpush
+
 @section('content')
 <section class="hero">
     <div class="hero-body">
@@ -11,18 +15,33 @@
 
                         {{ html()->form('POST', route('register'))->open() }}
                         <div class="field">
-                            {{ html()->label('Nombre', 'first_name')->class('label') }}
+                            {{ html()->label('Nombre', 'name')->class('label') }}
                             <div class="control">
-                                {{ html()->text('first_name', old('first_name'))
+                                {{ html()->text('name', old('name'))
                                     ->class('input is-medium')
                                     ->required()
-                                    ->if($errors->has('first_name'), function ($el) {
+                                    ->if($errors->has('name'), function ($el) {
                                         return $el->addClass('is-danger');
                                     })
                                 }}
                             </div>
-                            @if ($errors->has('first_name'))
-                            <p class="help is-danger" role="alert">{{ $errors->first('first_name') }}</p>
+                            @if ($errors->has('name'))
+                            <p class="help is-danger" role="alert">{{ $errors->first('name') }}</p>
+                            @endif
+                        </div>
+                        <div class="field">
+                            {{ html()->label('Nombre de usuario', 'username')->class('label') }}
+                            <div class="control">
+                                {{ html()->text('username', old('username'))
+                                    ->class('input is-medium')
+                                    ->required()
+                                    ->if($errors->has('username'), function ($el) {
+                                        return $el->addClass('is-danger');
+                                    })
+                                }}
+                            </div>
+                            @if ($errors->has('username'))
+                                <p class="help is-danger" role="alert">{{ $errors->first('username') }}</p>
                             @endif
                         </div>
                         <div class="field">
@@ -55,11 +74,8 @@
                             <p class="help is-danger" role="alert">{{ $errors->first('password') }}</p>
                             @endif
                         </div>
-                        <div class="field">
-                            {{ html()->label('Confirmación de contraseña', 'password_confirmation')->class('label') }}
-                            <div class="control">
-                                {{ html()->password('password_confirmation')->class('input is-medium')->required() }}
-                            </div>
+                        <div class="field field-recaptcha">
+                            {!! NoCaptcha::display() !!}
                         </div>
                         <div class="field">
                             <div class="control">
