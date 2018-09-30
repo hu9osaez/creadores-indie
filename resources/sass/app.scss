@@ -97,7 +97,7 @@ body {
     &__head {
         display: flex;
         align-content: space-between;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         &__category {
             flex: 1;
             span {
@@ -125,9 +125,11 @@ body {
         }
     }
     &__title {
+        border-bottom: 1px solid lighten($grey-lighter, 7%);
         font-size: 2rem;
         font-weight: 700;
         margin-bottom: .8rem;
+        padding-bottom: .5rem;
     }
     &__content {
         font-size: 1.1rem;
@@ -225,6 +227,9 @@ ul.discussions {
     border-radius: 6px;
     border: 2px solid $grey-lighter;
     display: block;
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
     &__body {
         padding: 1rem;
     }

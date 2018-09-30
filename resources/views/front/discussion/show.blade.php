@@ -28,21 +28,25 @@
                 </div>
             </div>
             <div class="column">
-                <div class="singleDiscussion">
-                    <div class="singleDiscussion__head">
-                        <div class="singleDiscussion__head__category">
-                            <span>Publicado en</span>
-                            {{ html()->a(route('front::category.show', $category->slug), $category->name)
-                                ->style("background-color: {$category->bg_color}; color: {$category->text_color}")
-                            }}
+                <div class="widget">
+                    <div class="widget__body">
+                        <div class="singleDiscussion">
+                            <div class="singleDiscussion__head">
+                                <div class="singleDiscussion__head__category">
+                                    <span>Publicado en</span>
+                                    {{ html()->a(route('front::category.show', $category->slug), $category->name)
+                                        ->style("background-color: {$category->bg_color}; color: {$category->text_color}")
+                                    }}
+                                </div>
+                                <div class="singleDiscussion__head__date">
+                                    <span>{{ $discussion->human_date_alt }}</span>
+                                </div>
+                            </div>
+                            <h2 class="singleDiscussion__title">{{ $discussion->title }}</h2>
+                            <div class="singleDiscussion__content content">
+                                {!! $discussion->parsed_body !!}
+                            </div>
                         </div>
-                        <div class="singleDiscussion__head__date">
-                            <span>{{ $discussion->human_date_alt }}</span>
-                        </div>
-                    </div>
-                    <h2 class="singleDiscussion__title">{{ $discussion->title }}</h2>
-                    <div class="singleDiscussion__content content">
-                        {!! $discussion->parsed_body !!}
                     </div>
                 </div>
                 @include('front.discussion.partials.replies-box')
