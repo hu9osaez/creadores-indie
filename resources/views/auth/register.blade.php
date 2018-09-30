@@ -76,6 +76,9 @@
                         </div>
                         <div class="field field-recaptcha">
                             {!! NoCaptcha::display() !!}
+                            @if ($errors->has('g-recaptcha-response'))
+                            <p class="help is-danger" role="alert">{{ $errors->first('g-recaptcha-response') }}</p>
+                            @endif
                         </div>
                         <div class="field">
                             <div class="control">
