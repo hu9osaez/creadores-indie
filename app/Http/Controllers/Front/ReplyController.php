@@ -35,7 +35,8 @@ class ReplyController extends Controller
                 ->route('front::discussion.show', [$category->slug, $discussion->slug])
                 ->with([
                     'message' => 'Comentario agregado correctamente.',
-                    'message_type' => 'is-success'
+                    'message_type' => 'is-success',
+                    'is-reply' => true
                 ]);
         } else {
             return redirect()->back()->with([

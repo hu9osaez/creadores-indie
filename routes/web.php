@@ -21,13 +21,18 @@ Route::group([
     Route::name('front::')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
 
-        Route::get('new', 'DiscussionController@create')->name('discussion.create');
-        Route::post('new', 'DiscussionController@store')->name('discussion.store');
+        Route::middleware('auth')->group(function () {
+            Route::get('new', 'DiscussionController@create')->name('discussion.create');
+            Route::post('new', 'DiscussionController@store')->name('discussion.store');
+
+            Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
+        });
 
         Route::get('@{username}', 'UserController@show')->name('user.show');
 
         Route::get('{category}', 'CategoryController@show')->name('category.show');
         Route::get('{category}/{slug}', 'DiscussionController@show')->name('discussion.show');
-        Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
+
+        Route::get('p/{uri?}', 'PageController@show')->name('page.show');
     });
 });
