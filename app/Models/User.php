@@ -4,10 +4,11 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Spatie\Activitylog\Traits\CausesActivity;
+use Laratrust\Traits\LaratrustUserTrait;
 
 class User extends Authenticatable
 {
-    use CausesActivity, Notifiable;
+    use CausesActivity, LaratrustUserTrait, Notifiable;
 
     protected $fillable = [
         'name',

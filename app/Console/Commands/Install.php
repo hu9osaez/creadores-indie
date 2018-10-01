@@ -35,7 +35,7 @@ class Install extends Command
     /**
      * Execute the console command.
      *
-     * @return mixed
+     * @return void
      */
     public function handle()
     {
@@ -84,6 +84,8 @@ class Install extends Command
             $admin->password = $password;
 
             if($admin->save()) {
+                $admin->attachRole('admin');
+
                 $this->line('Account created successfully');
             }
             else {
