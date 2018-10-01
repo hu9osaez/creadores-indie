@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
+use CreadoresIndie\Events\DiscussionWasCreated;
 use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Http\Requests\PublishDiscussionRequest;
 use CreadoresIndie\Models\Category;
@@ -47,6 +48,9 @@ class DiscussionController extends Controller
         $newDiscussion->user()->associate($user);
 
         if($newDiscussion->save()) {
+
+            event(new DiscussionWasCreated($newDiscussion));
+
             return redirect()
                 ->route('front::discussion.show', [$category->slug, $newDiscussion->slug])
                 ->with([

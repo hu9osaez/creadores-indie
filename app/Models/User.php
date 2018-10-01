@@ -3,10 +3,11 @@
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Spatie\Activitylog\Traits\CausesActivity;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+    use CausesActivity, Notifiable;
 
     protected $fillable = [
         'name',

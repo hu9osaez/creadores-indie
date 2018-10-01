@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
+use CreadoresIndie\Events\ReplyWasCreated;
 use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Http\Requests\PublishReplyRequest;
 use CreadoresIndie\Models\Discussion;
@@ -29,7 +30,7 @@ class ReplyController extends Controller
         if ($newReply->save()) {
             $discussion->increment('replies_count');
 
-            //event(new ReplyCreated($newReply));
+            event(new ReplyWasCreated($newReply));
 
             return redirect()
                 ->route('front::discussion.show', [$category->slug, $discussion->slug])

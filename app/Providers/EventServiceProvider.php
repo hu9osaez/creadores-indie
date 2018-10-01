@@ -1,5 +1,9 @@
 <?php namespace CreadoresIndie\Providers;
 
+use CreadoresIndie\Events\DiscussionWasCreated;
+use CreadoresIndie\Events\ReplyWasCreated;
+use CreadoresIndie\Listeners\NewDiscussion;
+use CreadoresIndie\Listeners\NewReply;
 use CreadoresIndie\Listeners\UserLoggedIn;
 use CreadoresIndie\Listeners\UserRegistered;
 use Illuminate\Auth\Events\Login;
@@ -21,6 +25,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         Login::class => [
             UserLoggedIn::class
+        ],
+        DiscussionWasCreated::class => [
+            NewDiscussion::class
+        ],
+        ReplyWasCreated::class => [
+            NewReply::class
         ],
     ];
 
