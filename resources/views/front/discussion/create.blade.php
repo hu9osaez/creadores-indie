@@ -26,6 +26,8 @@ $(document).ready(function () {
 </script>
 @endpush
 
+@section('title', 'Crear nuevo tema')
+
 @section('content')
 <section class="section">
     <div class="container">

@@ -4,6 +4,8 @@
     {!! NoCaptcha::renderJs('es') !!}
 @endpush
 
+@section('title', 'Únete a la comunidad')
+
 @section('content')
 <section class="hero">
     <div class="hero-body">
