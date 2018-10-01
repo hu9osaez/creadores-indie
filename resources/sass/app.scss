@@ -288,5 +288,10 @@ footer {
     display: block;
     font-size: .9rem;
     padding: 1.5rem 0;
-    text-align: center;
+    .links {
+        float: right;
+        li {
+            display: inline-block;
+        }
+    }
 }
