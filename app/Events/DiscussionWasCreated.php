@@ -1,9 +1,9 @@
 <?php namespace CreadoresIndie\Events;
 
 use CreadoresIndie\Models\Discussion;
-use Illuminate\Queue\SerializesModels;
-use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
+use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Queue\SerializesModels;
 
 class DiscussionWasCreated
 {

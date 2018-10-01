@@ -1,8 +1,9 @@
 <?php
 
-if(!function_exists('getContrastColor')) {
+if (!function_exists('getContrastColor')) {
     // Taken from https://stackoverflow.com/a/42921358
-    function getContrastColor($hexcolor) {
+    function getContrastColor($hexcolor)
+    {
         $r = hexdec(substr($hexcolor, 1, 2));
         $g = hexdec(substr($hexcolor, 3, 2));
         $b = hexdec(substr($hexcolor, 5, 2));
@@ -56,7 +57,9 @@ if (! function_exists('userAgentData')) {
      */
     function userAgentData()
     {
-        if (!isset($_SERVER['HTTP_USER_AGENT'])) return null;
+        if (!isset($_SERVER['HTTP_USER_AGENT'])) {
+            return null;
+        }
 
         $parser = new \WhichBrowser\Parser($_SERVER['HTTP_USER_AGENT']);
 

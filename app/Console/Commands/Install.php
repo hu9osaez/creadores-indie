@@ -83,12 +83,11 @@ class Install extends Command
             $admin->email = $email;
             $admin->password = $password;
 
-            if($admin->save()) {
+            if ($admin->save()) {
                 $admin->attachRole('admin');
 
                 $this->line('Account created successfully');
-            }
-            else {
+            } else {
                 $this->error('Database connection not available');
             }
         } else {

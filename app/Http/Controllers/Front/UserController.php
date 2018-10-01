@@ -1,7 +1,7 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
-use CreadoresIndie\Models\User;
 use CreadoresIndie\Http\Controllers\Controller;
+use CreadoresIndie\Models\User;
 
 class UserController extends Controller
 {

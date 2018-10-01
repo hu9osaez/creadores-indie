@@ -47,8 +47,7 @@ class DiscussionController extends Controller
         $newDiscussion->category()->associate($category);
         $newDiscussion->user()->associate($user);
 
-        if($newDiscussion->save()) {
-
+        if ($newDiscussion->save()) {
             event(new DiscussionWasCreated($newDiscussion));
 
             return redirect()
@@ -57,8 +56,7 @@ class DiscussionController extends Controller
                     'message' => 'El tema fue publicado correctamente.',
                     'message_type' => 'is-success'
                 ]);
-        }
-        else {
+        } else {
             return redirect()->back()->with([
                 'message' => 'Ocurrío un problema al publicar el tema, intenta nuevamente.',
                 'message_type' => 'is-danger'

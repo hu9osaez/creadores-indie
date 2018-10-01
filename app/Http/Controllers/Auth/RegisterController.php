@@ -1,10 +1,10 @@
 <?php namespace CreadoresIndie\Http\Controllers\Auth;
 
-use CreadoresIndie\Models\User;
 use CreadoresIndie\Http\Controllers\Controller;
+use CreadoresIndie\Models\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RegisterController extends Controller
 {

@@ -29,7 +29,7 @@ class DiscussionsTableSeeder extends Seeder
 
                 factory(Reply::class, rand(1, 10))
                     ->make()
-                    ->each(function (Reply $reply) use($discussion, $user) {
+                    ->each(function (Reply $reply) use ($discussion, $user) {
                         $reply->discussion()->associate($discussion);
                         $reply->user()->associate($user);
                         $reply->save();

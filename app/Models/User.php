@@ -1,10 +1,9 @@
 <?php namespace CreadoresIndie\Models;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Spatie\Activitylog\Traits\CausesActivity;
+use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use Spatie\Activitylog\Traits\CausesActivity;
 
 class User extends Authenticatable
 {

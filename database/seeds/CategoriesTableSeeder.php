@@ -34,7 +34,7 @@ class CategoriesTableSeeder extends Seeder
             ],
         ];
 
-        foreach($categories as $category) {
+        foreach ($categories as $category) {
             Category::create($category);
         }
     }
