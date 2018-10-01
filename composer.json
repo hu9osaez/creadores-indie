@@ -25,6 +25,7 @@
     },
     "require-dev": {
         "beyondcode/laravel-dump-server": "^1.0",
+        "beyondcode/laravel-er-diagram-generator": "^1.2",
         "filp/whoops": "^2.0",
         "friendsofphp/php-cs-fixer": "^2.13",
         "fzaninotto/faker": "^1.4",
@@ -53,7 +54,8 @@
         "laravel": {
             "dont-discover": [
                 "barryvdh/laravel-ide-helper",
-                "barryvdh/laravel-debugbar"
+                "barryvdh/laravel-debugbar",
+                "beyondcode/laravel-er-diagram-generator"
             ]
         }
     },
