@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Console;
 
+use CreadoresIndie\Console\Commands\Install;
 use CreadoresIndie\Console\Commands\RecountReplies;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -12,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        RecountReplies::class
+        Install::class,
+        RecountReplies::class,
     ];
 
     /**
