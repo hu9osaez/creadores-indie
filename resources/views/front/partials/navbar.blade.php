@@ -14,7 +14,18 @@
         <div class="navbar-menu">
             <div class="navbar-end">
                 @auth
-                <a href="{{ route('logout') }}" class="navbar-item">Salir</a>
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <div class="navbar-item item-user">
+                        <img class="avatar" src="{{ $loggedInUser->avatar }}">
+                    </div>
+                    <div class="navbar-dropdown is-boxed is-right">
+                        {{ html()->a('#', 'Mi perfil')->class('navbar-item') }}
+                        {{ html()->a('#', 'Mis marcadores')->class('navbar-item') }}
+                        {{ html()->a('#', 'Configuración')->class('navbar-item') }}
+                        <hr class="navbar-divider">
+                        {{ html()->a(route('logout'), 'Cerrar sesión')->class('navbar-item') }}
+                    </div>
+                </div>
                 @endauth
 
                 @guest

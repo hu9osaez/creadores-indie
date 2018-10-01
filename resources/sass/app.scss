@@ -28,6 +28,19 @@ body {
     }
 }
 
+.item-user .avatar {
+    border: 2px solid #e8e8e8;
+    border-radius: 50%;
+    cursor: pointer;
+    display: inline-block;
+    float: left;
+    height: 37px;
+    margin-right: 10px;
+    margin-top: 2px;
+    max-height: none;
+    width: 37px;
+}
+
 .content blockquote {
     padding: .8em 1em;
 }

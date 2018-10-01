@@ -159,6 +159,7 @@ return [
         // CreadoresIndie\Providers\BroadcastServiceProvider::class,
         CreadoresIndie\Providers\EventServiceProvider::class,
         CreadoresIndie\Providers\RouteServiceProvider::class,
+        CreadoresIndie\Providers\ComposerViewServiceProvider::class,
 
     ],
 
