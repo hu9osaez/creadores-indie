@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Models;
 
+use CreadoresIndie\Traits\HasEncodedId;
 use CreadoresIndie\Traits\Shareable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -9,9 +10,10 @@ use Spatie\Sluggable\SlugOptions;
 
 class Discussion extends Model
 {
-    use HasSlug, Shareable, SoftDeletes;
+    use HasEncodedId, HasSlug, Shareable, SoftDeletes;
 
     protected $appends = [
+        'encoded_id',
         'excerpt',
         'url'
     ];
