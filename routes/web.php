@@ -25,6 +25,9 @@ Route::group([
             Route::get('new', 'DiscussionController@create')->name('discussion.create');
             Route::post('new', 'DiscussionController@store')->name('discussion.store');
 
+            Route::view('me/settings', 'front.profile.settings.show')->name('profile.settings.show');
+            Route::post('me/settings', 'ProfileController@update')->name('profile.settings.update');
+
             Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
         });
 

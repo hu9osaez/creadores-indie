@@ -2,7 +2,7 @@
     @foreach($discussions as $discussion)
     <li class="discussion">
         <div class="discussion__avatar">
-            <img src="https://devdojo.com/media/users/default.png" >
+            <img src="{{ $discussion->user->avatar_url }}" >
         </div>
         <div class="discussion__content">
             <a class="discussion__title" href="{{ $discussion->url }}">{{ $discussion->title }}</a>

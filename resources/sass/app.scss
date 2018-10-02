@@ -13,6 +13,14 @@ body {
     font-weight: 400;
 }
 
+.is-required > label:after {
+    content: '*';
+    color: #db2828;
+    font-size: .8rem;
+    vertical-align: top;
+    margin: -.2em 0 0 .2em;
+}
+
 .navbar {
     box-shadow: 0 2px 0 0 #f5f5f5;
     .btn-register {
@@ -41,30 +49,22 @@ body {
     width: 37px;
 }
 
-.content blockquote {
-    padding: .8em 1em;
-}
+.content blockquote { padding: .8em 1em }
 
 .widget {
     background-color: white;
     border-radius: 6px;
     border: 2px solid $grey-lighter;
     display: block;
-    &:not(:last-child) {
-        margin-bottom: 1rem;
-    }
-    &__body {
-        padding: 1rem;
-    }
+    &:not(:last-child) { margin-bottom: 1rem }
+    &__body { padding: 1rem }
     &__user {
         display: inline-block;
         padding: .5rem;
         transition: all 250ms;
         vertical-align: middle;
         width: 100%;
-        &:hover img {
-            border-color: darken(#e3dede, 5%);
-        }
+        &:hover img { border-color: darken(#e3dede, 5%) }
         a {
             display: flex;
             height: 45px;
@@ -283,6 +283,20 @@ ul.discussions {
             height: 35px;
             width: 35px;
         }
+    }
+}
+
+.userSettings {
+    .avatar {
+        border-radius: 50%;
+        height: 50px;
+        margin-right: 15px;
+        vertical-align: middle;
+        width: 50px;
+    }
+    .field:not(:last-child) { margin-bottom: 1.2rem }
+    .input-file {
+        padding: 10px;
     }
 }
 

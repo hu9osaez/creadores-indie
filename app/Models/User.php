@@ -3,11 +3,12 @@
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use QCod\ImageUp\HasImageUploads;
 use Spatie\Activitylog\Traits\CausesActivity;
 
 class User extends Authenticatable
 {
-    use CausesActivity, LaratrustUserTrait, Notifiable;
+    use CausesActivity, HasImageUploads, LaratrustUserTrait, Notifiable;
 
     protected $fillable = [
         'name',
@@ -20,6 +21,22 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+    protected $autoUploadImages = false;
+
+    protected static $imageFields = [
+        'avatar' => [
+            'width' => 200,
+            'height' => 200,
+            'path' => 'avatars',
+            'placeholder' => '/img/default-avatar.png',
+        ],
+    ];
+
+    public function getAvatarUrlAttribute()
+    {
+        return $this->imageUrl('avatar');
+    }
 
     public function getUrlAttribute()
     {

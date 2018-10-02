@@ -10,7 +10,7 @@
                 <div class="widget">
                     <div class="widget__user">
                         <a href="{{ $user->url }}">
-                            <img src="{{ $user->avatar }}" alt="Perfil de {{ $user->name }}">
+                            <img src="{{ $user->avatar_url }}" alt="Perfil de {{ $user->name }}">
                             <div class="content">
                                 <span class="name">{{ $user->name }}</span>
                                 <span class="username">{{ $user->username }}</span>

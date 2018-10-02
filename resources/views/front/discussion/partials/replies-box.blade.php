@@ -69,7 +69,7 @@
                 @foreach($replies as $reply)
                 <div class="media">
                     <figure class="media-left">
-                        <img class="avatar" src="{{ $reply->user->avatar }}">
+                        <img class="avatar" src="{{ $reply->user->avatar_url }}">
                     </figure>
                     <div class="media-content">
                         <p>
