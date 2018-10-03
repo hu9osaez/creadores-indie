@@ -13,7 +13,7 @@
         <title>{{ config('app.name') }} &#128736;&#128640;</title>
     @endif
 
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.2.2/css/ionicons.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.1/css/ionicons.min.css" rel="stylesheet">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     @stack('custom-css')
 </head>

@@ -5,12 +5,13 @@ use CreadoresIndie\Traits\Shareable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Overtrue\LaravelFollow\Traits\CanBeVoted;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Discussion extends Model
 {
-    use HasEncodedId, HasSlug, Shareable, SoftDeletes;
+    use CanBeVoted, HasEncodedId, HasSlug, Shareable, SoftDeletes;
 
     protected $appends = [
         'encoded_id',

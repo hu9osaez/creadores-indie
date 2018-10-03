@@ -26,14 +26,14 @@ Route::group([
             Route::post('new', 'DiscussionController@store')->name('discussion.store');
 
             Route::view('me/settings', 'front.profile.settings.show')->name('profile.settings.show');
-            Route::post('me/settings', 'ProfileController@update')->name('profile.settings.update');
+            Route::post('me/settings', 'ProfileSettingsController@update')->name('profile.settings.update');
 
             Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
         });
 
         Route::get('p/{slug}', 'PageController@show')->name('page.show');
 
-        Route::get('@{username}', 'UserController@show')->name('user.show');
+        Route::get('@{username}', 'ProfileController@show')->name('profile.show');
 
         Route::get('{category}', 'CategoryController@show')->name('category.show');
         Route::get('{category}/{slug}', 'DiscussionController@show')->name('discussion.show');

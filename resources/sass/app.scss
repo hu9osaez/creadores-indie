@@ -13,6 +13,19 @@ body {
     font-weight: 400;
 }
 
+.button {
+    &.facebook {
+        color: #ffffff;
+        background-color: #3b5998;
+        border-color: #3b5998;
+    }
+    &.twitter {
+        color: #ffffff;
+        background-color: #1da1f2;
+        border-color: #1da1f2;
+    }
+}
+
 .is-required > label:after {
     content: '*';
     color: #db2828;
@@ -25,7 +38,8 @@ body {
     box-shadow: 0 2px 0 0 #f5f5f5;
     .btn-register {
         display: inline-flex;
-        background-color: #232629;
+        //background-color: #232629;
+        background: linear-gradient(90deg, #5277e0, #23b9d1);
         color: #fff;
         border-radius: 3px;
         padding: .25em 1.5em;
@@ -226,7 +240,6 @@ ul.discussions {
 }
 
 .singleDiscussion {
-    margin-bottom: 20px;
     &__head {
         display: flex;
         align-content: space-between;
@@ -267,6 +280,22 @@ ul.discussions {
     &__content {
         font-size: 1.1rem;
     }
+    &__social {
+        //background: #e9e9e9;
+        //border-radius: 3px;
+        display: flex;
+        justify-content: space-between;
+        //padding: 8px;
+        .btn-upvote {
+            &--upvoted i { color: #3498DB }
+            span {
+                color: $dark;
+                font-size: .9rem;
+                margin-left: 5px;
+            }
+        }
+        .socialButtons ul li { display: inline-block }
+    }
 }
 
 .repliesBox {
@@ -300,15 +329,69 @@ ul.discussions {
     }
 }
 
+.userProfile {
+    &__details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        &__divider {
+            border-bottom: 1px solid #eaecef;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+        }
+        &__avatar img {
+            border: 3px solid #e3dede;
+            border-radius: 50%;
+            max-height: 180px;
+            max-width: 180px;
+        }
+        &__metadata {
+            text-align: center;
+            width: 100%;
+            &__name {
+                font-size: 1.6rem;
+                font-weight: bold;
+            }
+            &__username {
+                color: $grey;
+                font-size: .9rem;
+            }
+            &__links {
+                font-size: 1.5rem;
+                ul li {
+                    display: inline-block;
+                    &:not(:last-child) { margin-right: 7px }
+                }
+            }
+            &__joined, &__discussions {
+                text-align: left;
+                span { color: $grey-dark }
+            }
+        }
+    }
+    &__noPosts {
+        background-color: #f5f7ff;
+        border: 2px solid $grey-lighter;
+        border-radius: 6px;
+        display: flex;
+        flex-direction: column;
+        height: 130px;
+        max-height: 130px;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        &__heading {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+    }
+}
+
 .trumbowyg-box, .trumbowyg-editor { min-height: 120px!important }
 
-.field-recaptcha {
-    text-align: center;
-}
+.field-recaptcha { text-align: center }
 
-.g-recaptcha {
-    display: inline-block;
-}
+.g-recaptcha { display: inline-block }
 
 footer {
     border-top: 1px solid lighten($grey-lighter, 7%);
@@ -317,8 +400,6 @@ footer {
     padding: 1.5rem 0;
     .links {
         float: right;
-        li {
-            display: inline-block;
-        }
+        li { display: inline-block }
     }
 }

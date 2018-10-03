@@ -3,12 +3,13 @@
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laratrust\Traits\LaratrustUserTrait;
+use Overtrue\LaravelFollow\Traits\CanVote;
 use QCod\ImageUp\HasImageUploads;
 use Spatie\Activitylog\Traits\CausesActivity;
 
 class User extends Authenticatable
 {
-    use CausesActivity, HasImageUploads, LaratrustUserTrait, Notifiable;
+    use CanVote, CausesActivity, HasImageUploads, LaratrustUserTrait, Notifiable;
 
     protected $fillable = [
         'name',
@@ -40,7 +41,7 @@ class User extends Authenticatable
 
     public function getUrlAttribute()
     {
-        return route('front::user.show', $this->username);
+        return route('front::profile.show', $this->username);
     }
 
     public function getUsernamePublicAttribute()

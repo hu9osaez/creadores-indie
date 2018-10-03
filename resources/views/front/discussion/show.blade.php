@@ -48,6 +48,29 @@
                             <div class="singleDiscussion__content content">
                                 {!! $discussion->parsed_body !!}
                             </div>
+                            <div class="singleDiscussion__social">
+                                <div class="likes">
+                                    @php($upvoted = $discussion->isUpvotedBy($loggedInUser))
+                                    <button class="button btn-upvote {{ $upvoted ? 'btn-upvote--upvoted' : '' }}" id="js--btn-upvote">
+                                        <i class="icon ion-md-thumbs-up"></i>
+                                        <span>{{ $discussion->upvotes_count }}</span>
+                                    </button>
+                                </div>
+                                <div class="socialButtons">
+                                    <ul>
+                                        <li>
+                                            <a class="button facebook" href="{{ $discussion->getShareUrl('facebook') }}" target="_blank" rel="noopener" title="Compartir en Facebook">
+                                                <i class="icon ion-logo-facebook"></i>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a class="button twitter" href="{{ $discussion->getShareUrl('twitter') }}" target="_blank" rel="noopener" title="Compartir en Twitter">
+                                                <i class="icon ion-logo-twitter"></i>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

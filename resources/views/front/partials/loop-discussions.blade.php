@@ -21,8 +21,14 @@
                 <div class="dot-separator"></div>
                 <span class="discussion__details__replies">
                     <i class="icon is-small ion-md-chatbubbles"></i>
-                    {{ $discussion['replies_count'] }}
+                    {{ $discussion->replies_count }}
                 </span>
+                @if($discussion->upvotes_count > 0)
+                <span class="discussion__details__replies">
+                    <i class="icon is-small ion-md-thumbs-up"></i>
+                    {{ $discussion->upvotes_count }}
+                </span>
+                @endif
             </div>
             <p class="discussion__excerpt">{{ $discussion->excerpt }}</p>
         </div>
