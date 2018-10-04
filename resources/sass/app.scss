@@ -51,7 +51,7 @@ body {
 }
 
 .item-user .avatar {
-    border: 2px solid #e8e8e8;
+    border: 2px solid lighten($grey-lighter, 5%);
     border-radius: 50%;
     cursor: pointer;
     display: inline-block;
@@ -84,7 +84,7 @@ body {
             height: 45px;
             width: 100%;
             img {
-                border: 2px solid #e3dede;
+                border: 2px solid lighten($grey-lighter, 5%);
                 border-radius: 50%;
                 float: left;
                 margin-left: 5px;
@@ -207,7 +207,7 @@ ul.discussions {
                width: 60px;
                height: 60px;
                border-radius: 50%;
-               border: 2px solid #dfefff;
+               border: 2px solid lighten($grey-lighter, 5%);
            }
        }
        &__content { margin-left: 70px }
@@ -307,7 +307,7 @@ ul.discussions {
     &__list {
         margin-top: 1rem;
         .avatar {
-            border: 2px solid #e3dede;
+            border: 2px solid lighten($grey-lighter, 5%);
             border-radius: 50%;
             height: 35px;
             width: 35px;
@@ -324,9 +324,7 @@ ul.discussions {
         width: 50px;
     }
     .field:not(:last-child) { margin-bottom: 1.2rem }
-    .input-file {
-        padding: 10px;
-    }
+    .input-file { padding: 10px }
 }
 
 .userProfile {
@@ -340,7 +338,7 @@ ul.discussions {
             padding-bottom: 10px;
         }
         &__avatar img {
-            border: 3px solid #e3dede;
+            border: 3px solid lighten($grey-lighter, 5%);
             border-radius: 50%;
             max-height: 180px;
             max-width: 180px;

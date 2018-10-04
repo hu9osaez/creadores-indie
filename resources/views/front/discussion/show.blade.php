@@ -2,6 +2,42 @@
 
 @section('title', $discussion->title)
 
+@push('custom-js')
+@auth
+<script>
+$(document).ready(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    let $btnUpvote = $('#js--btn-upvote');
+    let classBtnUpvoted = 'btn-upvote--upvoted';
+
+    $btnUpvote.on('click', function (e) {
+        e.preventDefault();
+
+        $.post('{{ route('front::ajax.discussion.upvote', $discussion->encoded_id) }}', function(data) {
+            if(data.success) {
+                switch (data.code) {
+                    case '@discussion/upvote_added':
+                        $btnUpvote.addClass(classBtnUpvoted);
+                        break;
+                    case '@discussion/upvote_removed':
+                        $btnUpvote.removeClass(classBtnUpvoted);
+                        break;
+                }
+
+                $btnUpvote.find('span').html(data.upvotes_count);
+            }
+        });
+    });
+});
+</script>
+@endauth
+@endpush
+
 @section('content')
 <section class="section">
     <div class="container">

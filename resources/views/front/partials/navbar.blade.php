@@ -19,7 +19,7 @@
                         <img class="avatar" src="{{ $loggedInUser->avatar_url }}">
                     </div>
                     <div class="navbar-dropdown is-boxed is-right">
-                        {{ html()->a('#', 'Mi perfil')->class('navbar-item') }}
+                        {{ html()->a($loggedInUser->url, 'Mi perfil')->class('navbar-item') }}
                         {{ html()->a(route('front::profile.settings.show'), 'Configuración')->class('navbar-item') }}
                         <hr class="navbar-divider">
                         {{ html()->a(route('logout'), 'Cerrar sesión')->class('navbar-item') }}

@@ -22,6 +22,10 @@ Route::group([
         Route::get('/', 'HomeController@index')->name('home');
 
         Route::middleware('auth')->group(function () {
+
+            Route::post('ajax/discussion/upvote/{encodedId}', 'UpvoteController@toggleUpvoteDiscussion')
+                ->name('ajax.discussion.upvote');
+
             Route::get('new', 'DiscussionController@create')->name('discussion.create');
             Route::post('new', 'DiscussionController@store')->name('discussion.store');
 
