@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d8c6dd0ec057a441844365ea3f6c6572",
+    "content-hash": "bf88e629f8d49eba8a80f5c832064ec0",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2433,16 +2433,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "1.33.0",
+            "version": "1.34.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/briannesbitt/Carbon.git",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413"
+                "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/55667c1007a99e82030874b1bb14d24d07108413",
-                "reference": "55667c1007a99e82030874b1bb14d24d07108413",
+                "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
+                "reference": "1dbd3cb01c5645f3e7deda7aa46ef780d95fcc33",
                 "shasum": ""
             },
             "require": {
@@ -2484,7 +2484,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-08-07T08:39:47+00:00"
+            "time": "2018-09-20T19:36:25+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -3499,6 +3499,63 @@
             "time": "2018-09-04T09:16:42+00:00"
         },
         {
+            "name": "spatie/laravel-referer",
+            "version": "1.3.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-referer.git",
+                "reference": "b3ea363d9ee3833965374639e772c40ba966a897"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-referer/zipball/b3ea363d9ee3833965374639e772c40ba966a897",
+                "reference": "b3ea363d9ee3833965374639e772c40ba966a897",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/contracts": "~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/http": "~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "illuminate/support": "~5.4.0|~5.5.0|~5.6.0|~5.7.0",
+                "php": "^7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.4.3|~3.5.0|~3.6.0|~3.7.0",
+                "phpunit/phpunit": "^5.7|^6.2|^7.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Referer\\RefererServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Referer\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Keep a visitor's original referer in session",
+            "homepage": "https://github.com/spatie/laravel-referer",
+            "keywords": [
+                "laravel-referer",
+                "spatie"
+            ],
+            "time": "2018-08-29T07:12:18+00:00"
+        },
+        {
             "name": "spatie/laravel-sluggable",
             "version": "2.1.4",
             "source": {
@@ -4494,16 +4551,16 @@
         },
         {
             "name": "symfony/translation",
-            "version": "v4.1.4",
+            "version": "v4.1.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "fa2182669f7983b7aa5f1a770d053f79f0ef144f"
+                "reference": "9f0b61e339160a466ebcde167a6c5521c810e304"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/fa2182669f7983b7aa5f1a770d053f79f0ef144f",
-                "reference": "fa2182669f7983b7aa5f1a770d053f79f0ef144f",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/9f0b61e339160a466ebcde167a6c5521c810e304",
+                "reference": "9f0b61e339160a466ebcde167a6c5521c810e304",
                 "shasum": ""
             },
             "require": {
@@ -4559,7 +4616,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-08-07T12:45:11+00:00"
+            "time": "2018-10-02T16:36:10+00:00"
         },
         {
             "name": "symfony/var-dumper",

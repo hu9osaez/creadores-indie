@@ -1,6 +1,7 @@
 <?php namespace CreadoresIndie\Listeners;
 
 use Illuminate\Auth\Events\Login;
+use Spatie\Referer\Referer;
 
 class UserLoggedIn
 {
@@ -14,11 +15,13 @@ class UserLoggedIn
     {
         $user = auth()->user();
         $user_agent_parser = userAgentData();
+        $referer = app(Referer::class)->get();
 
         activity()
             ->performedOn($event->user)
             ->causedBy($user)
             ->withProperties([
+                'referer' => $referer,
                 'ip_address' => getRequestIpAddress(),
                 'user_agent' => getRequestUserAgent(),
                 'country' => getRequestCountry(),
