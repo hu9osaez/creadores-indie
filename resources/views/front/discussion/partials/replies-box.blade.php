@@ -30,7 +30,7 @@
             @guest
             <div class="repliesBox__guest">
                 <p class="has-text-centered">
-                    <a href="#auth">
+                    <a href="{{ route('login') }}">
                         Únete a <strong>{{ config('app.name') }}</strong> y participa en este tema
                     </a>
                 </p>

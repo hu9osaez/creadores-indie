@@ -2,16 +2,28 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('front::home') }}">
-                <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+                <div class="logo">
+                    <span>CI</span>
+                </div>
             </a>
 
-            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <a role="button" class="navbar-burger" id="burger-navbar" data-target="navbar" aria-label="menu" aria-expanded="false">
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
                 <span aria-hidden="true"></span>
             </a>
         </div>
-        <div class="navbar-menu">
+        <div class="navbar-menu" id="navbar">
+            <div class="navbar-start">
+                <div class="navbar-item navbar-search">
+                    {{ html()->form()->open() }}
+                    <div class="control has-icons-left">
+                        <input class="input" type="text" placeholder="¿Qué estás buscando?">
+                        <i class="icon ion-md-search"></i>
+                    </div>
+                    {{ html()->form()->close() }}
+                </div>
+            </div>
             <div class="navbar-end">
                 @auth
                 <div class="navbar-item has-dropdown is-hoverable">
