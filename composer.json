@@ -19,6 +19,7 @@
         "nicolaslopezj/searchable": "1.*",
         "overtrue/laravel-follow": "^1.1",
         "overtrue/laravel-lang": "~3.0",
+        "pragmarx/version": "^0.2.8",
         "qcod/laravel-imageup": "^1.0",
         "santigarcor/laratrust": "5.0.*",
         "spatie/laravel-activitylog": "^2.8",
