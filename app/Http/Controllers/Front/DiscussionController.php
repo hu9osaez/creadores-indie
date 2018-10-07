@@ -50,7 +50,9 @@ class DiscussionController extends Controller
         if ($newDiscussion->save()) {
             event(new DiscussionWasCreated($newDiscussion));
 
+            $user->upvote($newDiscussion);
             $user->increment('discussions_count');
+            $newDiscussion->increment('upvotes_count');
 
             return redirect()
                 ->route('front::discussion.show', [$category->slug, $newDiscussion->slug])

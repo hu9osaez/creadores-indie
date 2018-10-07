@@ -259,7 +259,12 @@ ul.discussions {
                text-align: center;
            }
            &__user a { border-bottom: 1px dotted lightgray }
-           &__replies i { color: $grey }
+           &__replies, &__upvotes {
+               color: $grey;
+               display: inline-block;
+               i { color: $grey }
+           }
+           &__upvotes { margin-left: 3px }
        }
    }
 }
