@@ -17,8 +17,21 @@
                 @render('sidebarComponent')
             </div>
             <div class="column">
+                @if(isset($isSearch) && $isSearch)
+                <div class="category-viewing">Resultados de búsqueda</div>
+                @else
                 <div class="category-viewing">Explorando todos los temas</div>
-                @include('front.partials.loop-discussions')
+                @endif
+
+                @if(isset($isSearch) && $isSearch && $discussions->isEmpty())
+                <div class="widget">
+                    <div class="widget__body">
+                        <p class="has-text-centered">No hay resultados para tu búsqueda.</p>
+                    </div>
+                </div>
+                @endif
+
+                @includeWhen($discussions->isNotEmpty(), 'front.partials.loop-discussions')
             </div>
         </div>
     </div>

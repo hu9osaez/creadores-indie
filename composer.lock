@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "bf88e629f8d49eba8a80f5c832064ec0",
+    "content-hash": "0310beeca8654224345f77d2c7f5b046",
     "packages": [
         {
             "name": "anahkiasen/underscore-php",
@@ -2487,6 +2487,52 @@
             "time": "2018-09-20T19:36:25+00:00"
         },
         {
+            "name": "nicolaslopezj/searchable",
+            "version": "1.10.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nicolaslopezj/searchable.git",
+                "reference": "cfd888bbe7b57fa52d81037bb73ef3d689683b22"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nicolaslopezj/searchable/zipball/cfd888bbe7b57fa52d81037bb73ef3d689683b22",
+                "reference": "cfd888bbe7b57fa52d81037bb73ef3d689683b22",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "illuminate/database": "4.2.x|~5.0",
+                "php": ">=5.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Nicolaslopezj\\Searchable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Lopez",
+                    "email": "nicolaslopezj@me.com"
+                }
+            ],
+            "description": "Eloquent model search trait.",
+            "keywords": [
+                "database",
+                "eloquent",
+                "laravel",
+                "model",
+                "search",
+                "searchable"
+            ],
+            "time": "2018-08-10T16:07:36+00:00"
+        },
+        {
             "name": "nikic/php-parser",
             "version": "v4.0.3",
             "source": {
@@ -3497,6 +3543,65 @@
                 "spatie"
             ],
             "time": "2018-09-04T09:16:42+00:00"
+        },
+        {
+            "name": "spatie/laravel-partialcache",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-partialcache.git",
+                "reference": "ea912501d3557682b3d306d8ed1a19ec13e400c3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-partialcache/zipball/ea912501d3557682b3d306d8ed1a19ec13e400c3",
+                "reference": "ea912501d3557682b3d306d8ed1a19ec13e400c3",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\PartialCache\\PartialCacheServiceProvider"
+                    ],
+                    "aliases": {
+                        "PartialCache": "Spatie\\PartialCache\\PartialCacheFacade"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\PartialCache\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian De Deyne",
+                    "email": "sebastian@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Blade directive to cache rendered partials in laravel",
+            "homepage": "https://github.com/spatie/laravel-partialcache",
+            "keywords": [
+                "cache",
+                "partial",
+                "spatie",
+                "view"
+            ],
+            "time": "2018-04-16T15:27:14+00:00"
         },
         {
             "name": "spatie/laravel-referer",

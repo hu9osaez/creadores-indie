@@ -13,8 +13,8 @@ class HomeController extends Controller
     public function index()
     {
         $discussions = Discussion::with(['category', 'user'])
-            ->latest('last_reply_at')
-            ->paginate(10);
+            ->latest()
+            ->paginate();
 
         return view('front.home', compact('discussions'));
     }

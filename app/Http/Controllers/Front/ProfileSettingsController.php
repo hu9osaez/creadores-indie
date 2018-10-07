@@ -12,19 +12,19 @@ class ProfileSettingsController extends Controller
 
         $user->name = $request->name;
 
-        if($user->username != $request->username) {
+        if ($user->username != $request->username) {
             $user->username = $request->username;
         }
 
-        if($user->email != $request->email) {
+        if ($user->email != $request->email) {
             $user->email = $request->email;
         }
 
-        if($request->has('password') && !is_null($request->password)) {
+        if ($request->has('password') && !is_null($request->password)) {
             $user->password = $request->password;
         }
 
-        if($request->hasFile('avatar')) {
+        if ($request->hasFile('avatar')) {
             $user->uploadImage($request->file('avatar'), 'avatar');
         }
 

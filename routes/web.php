@@ -21,8 +21,9 @@ Route::group([
     Route::name('front::')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
 
-        Route::middleware('auth')->group(function () {
+        Route::get('search', 'SearchController@search')->name('search');
 
+        Route::middleware('auth')->group(function () {
             Route::post('ajax/discussion/upvote/{encodedId}', 'UpvoteController@toggleUpvoteDiscussion')
                 ->name('ajax.discussion.upvote');
 

@@ -15,8 +15,8 @@ class CategoryController extends Controller
         $category = $this->getCategoryBySlug($categorySlug);
         $discussions = $category->discussions()
             ->with(['category', 'user'])
-            ->latest('last_reply_at')
-            ->paginate(10);
+            ->latest()
+            ->paginate();
 
         return view('front.category.show', compact('category', 'discussions'));
     }

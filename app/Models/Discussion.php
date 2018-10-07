@@ -5,18 +5,18 @@ use CreadoresIndie\Traits\Shareable;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Nicolaslopezj\Searchable\SearchableTrait;
 use Overtrue\LaravelFollow\Traits\CanBeVoted;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
 class Discussion extends Model
 {
-    use CanBeVoted, HasEncodedId, HasSlug, Shareable, SoftDeletes;
+    use CanBeVoted, HasEncodedId, HasSlug, Shareable, SearchableTrait, SoftDeletes;
 
     protected $appends = [
         'encoded_id',
-        'excerpt',
-        'url'
+        'excerpt'
     ];
 
     protected $dates = [
@@ -30,11 +30,21 @@ class Discussion extends Model
         'replies_count'
     ];
 
+    protected $perPage = 10;
+
     protected $shareOptions = [
         'columns' => [
             'title' => 'title'
         ],
         'url' => 'url'
+    ];
+
+    protected $searchable = [
+        'columns' => [
+            'discussions.title' => 10,
+            'discussions.slug' => 10,
+            'discussions.body' => 5,
+        ]
     ];
 
     public function getSlugOptions() : SlugOptions
@@ -52,7 +62,7 @@ class Discussion extends Model
         $replacement = '${2} ';
         $out = preg_replace($pattern, $replacement, $this->body);
 
-        $body = strip_tags($out);
+        $body = trim(strip_tags($out));
 
         return Str::words($body, 20);
     }

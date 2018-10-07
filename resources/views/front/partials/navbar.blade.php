@@ -16,9 +16,9 @@
         <div class="navbar-menu" id="navbar">
             <div class="navbar-start">
                 <div class="navbar-item navbar-search">
-                    {{ html()->form()->open() }}
+                    {{ html()->form('GET', route('front::search'))->open() }}
                     <div class="control has-icons-left">
-                        <input class="input" type="text" placeholder="¿Qué estás buscando?">
+                        {{ html()->text('q', request()->query('q'))->class('input')->placeholder('¿Qué estás buscando?')->required() }}
                         <i class="icon ion-md-search"></i>
                     </div>
                     {{ html()->form()->close() }}

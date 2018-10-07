@@ -29,6 +29,8 @@ class ReplyController extends Controller
 
         if ($newReply->save()) {
             $discussion->increment('replies_count');
+            $discussion->last_reply_at = now();
+            $discussion->save();
 
             event(new ReplyWasCreated($newReply));
 
