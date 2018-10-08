@@ -34,4 +34,6 @@
     @endforeach
 </ul>
 
+@if(!isset($isRandomDiscussions))
 {{ $discussions->links('partials.pagination-simple') }}
+@endif

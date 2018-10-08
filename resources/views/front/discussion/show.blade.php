@@ -114,6 +114,7 @@ $(document).ready(function () {
                     </div>
                 </div>
                 @include('front.discussion.partials.replies-box')
+                @render('randomDiscussionsComponent', compact('category'))
             </div>
         </div>
     </div>
