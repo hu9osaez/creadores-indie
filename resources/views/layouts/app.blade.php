@@ -13,6 +13,8 @@
         <title>{{ config('app.name') }} &#128736;&#128640;</title>
     @endif
 
+    <meta name="description" content="Conecta, comparte y aprende de otros creadores indie que tienen sus negocios y proyectos en el mundo digital.">
+
     @yield('seo')
 
     <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.4.1/css/ionicons.min.css" rel="stylesheet">
