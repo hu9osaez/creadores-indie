@@ -2,6 +2,7 @@
 
 use CreadoresIndie\Events\DiscussionWasCreated;
 use CreadoresIndie\Events\ReplyWasCreated;
+use CreadoresIndie\Listeners\GenerateSocialPreview;
 use CreadoresIndie\Listeners\NewDiscussion;
 use CreadoresIndie\Listeners\NewReply;
 use CreadoresIndie\Listeners\UserLoggedIn;
@@ -27,7 +28,8 @@ class EventServiceProvider extends ServiceProvider
             UserLoggedIn::class
         ],
         DiscussionWasCreated::class => [
-            NewDiscussion::class
+            NewDiscussion::class,
+            GenerateSocialPreview::class
         ],
         ReplyWasCreated::class => [
             NewReply::class

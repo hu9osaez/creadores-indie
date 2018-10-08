@@ -16,7 +16,12 @@ class Discussion extends Model
 
     protected $appends = [
         'encoded_id',
-        'excerpt'
+        'excerpt',
+        'has_social_preview'
+    ];
+
+    protected $casts = [
+        'has_social_preview' => 'boolean'
     ];
 
     protected $dates = [
@@ -56,6 +61,9 @@ class Discussion extends Model
 
     /** Custom attributes */
 
+    /**
+     * @return string
+     */
     public function getExcerptAttribute()
     {
         $pattern = '/<p(.*?)>((.*?)+)\<\/p>/';
@@ -67,26 +75,57 @@ class Discussion extends Model
         return Str::words($body, 20);
     }
 
+    /**
+     * @return bool
+     */
+    public function getHasSocialPreviewAttribute()
+    {
+        return !is_null($this->social_preview);
+    }
+
+    /**
+     * @return string
+     */
     public function getHumanDateAttribute()
     {
         return $this->created_at->format('d-m-Y H:i');
     }
 
+    /**
+     * @return string
+     */
     public function getHumanDateAltAttribute()
     {
         return $this->created_at->format('d M, Y');
     }
 
+    /**
+     * @return string
+     */
     public function getParsedBodyAttribute()
     {
         return $this->body;
     }
 
+    /**
+     * @return string
+     */
     public function getRelativeDateAttribute()
     {
         return $this->created_at->diffForHumans();
     }
 
+    /**
+     * @return string
+     */
+    public function getSocialPreviewUrlAttribute()
+    {
+        return \Storage::disk('public')->url($this->social_preview);
+    }
+
+    /**
+     * @return string
+     */
     public function getUrlAttribute()
     {
         return route('front::discussion.show', [$this->category->slug, $this->slug]);
