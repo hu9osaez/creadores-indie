@@ -1,5 +1,6 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
+use Artesaos\SEOTools\Traits\SEOTools as SEOToolsTrait;
 use CreadoresIndie\Events\DiscussionWasCreated;
 use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Http\Requests\PublishDiscussionRequest;
@@ -9,6 +10,8 @@ use Purifier;
 
 class DiscussionController extends Controller
 {
+    use SEOToolsTrait;
+
     public function show($category, $slug)
     {
         $discussion = Discussion::with(['category', 'user', 'replies.user'])
@@ -21,6 +24,25 @@ class DiscussionController extends Controller
         $category = $discussion->category;
         $user = $discussion->user;
         $replies = $discussion->replies->sortByDesc('created_at');
+
+        /**
+         * SEO
+         */
+        $this->seo()->metatags()->addMeta('article:section', $category->name, 'property');
+        $this->seo()->metatags()->addMeta('article:published_time', $discussion->created_at->toW3cString(), 'property');
+        $this->seo()->metatags()->setCanonical($discussion->url);
+        $this->seo()->opengraph()->setUrl($discussion->url);
+        $this->seo()->opengraph()->setTitle($discussion->title);
+        $this->seo()->opengraph()->setDescription($discussion->excerpt);
+        $this->seo()->opengraph()->setType('article');
+        $this->seo()->twitter()->setType('summary_large_image');
+        $this->seo()->twitter()->setTitle($discussion->title);
+        $this->seo()->twitter()->setDescription($discussion->excerpt);
+
+        if($discussion->has_social_preview) {
+            $this->seo()->opengraph()->addImage($discussion->social_preview_url);
+            \SEO::twitter()->setImage($discussion->social_preview_url);
+        }
 
         return view('front.discussion.show', compact('category', 'discussion', 'user', 'replies'));
     }

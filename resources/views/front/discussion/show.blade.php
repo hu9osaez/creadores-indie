@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('title', $discussion->title)
+@section('seo')
+    {!! SEO::generate() !!}
+@endsection
 
 @push('custom-js')
 @auth
