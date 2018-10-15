@@ -15,6 +15,10 @@ class AppServiceProvider extends ServiceProvider
     {
         Carbon::setLocale(config('app.locale'));
         Schema::defaultStringLength(191);
+
+        if($this->app->environment() == 'production') {
+            \URL::forceScheme('https');
+        }
     }
 
     /**
