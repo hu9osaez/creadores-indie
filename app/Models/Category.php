@@ -10,8 +10,8 @@ class Category extends Model
     use HasSlug, SoftDeletes;
 
     protected $casts = [
-        'bg_color',
-        'text_color'
+        'bg_color' => 'string',
+        'text_color' => 'string'
     ];
 
     protected $fillable = [
@@ -35,6 +35,11 @@ class Category extends Model
     public function getTextColorAttribute()
     {
         return getContrastColor($this->color);
+    }
+
+    public function getUrlAttribute()
+    {
+        return route('front::category.show', $this->slug);
     }
 
     public function discussions()

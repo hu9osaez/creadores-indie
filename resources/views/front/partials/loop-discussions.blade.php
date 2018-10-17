@@ -1,39 +1,55 @@
-<ul class="discussions">
+@php($isCategory = isset($category))
+<ul class="discussions {{ isset($isStickyDiscussions) ? 'is-sticky' : '' }}">
     @foreach($discussions as $discussion)
+    @php($cat = $isCategory ? $category : $discussion->category)
+    @php($url = $isCategory ? $discussion->url($cat) : $discussion->url)
     <li class="discussion">
+        @if($discussion->sticky && isset($isStickyDiscussions))
+        <div class="discussion__sticky">
+            <span class="icon">
+                <i class="fas fa-thumbtack"></i>
+            </span>
+        </div>
+        @endif
         <div class="discussion__avatar">
             <img src="{{ $discussion->user->avatar_url }}" >
         </div>
         <div class="discussion__content">
-            <a class="discussion__title" href="{{ $discussion->url }}">{{ $discussion->title }}</a>
+            <a class="discussion__title" href="{{ $url }}">{{ $discussion->title }}</a>
             <div class="discussion__details">
-                {{ html()->a(route('front::category.show', $discussion->category->slug), $discussion->category->name)
+                {{ html()->a($cat->url, $cat->name)
                         ->class('discussion__details__category')
-                        ->style("background-color: {$discussion->category->bg_color}; color: {$discussion->category->text_color}")
+                        ->style("background-color: {$cat->bg_color}; color: {$cat->text_color}")
                 }}
                 <span class="discussion__details__user">
                     Por <a href="{{ $discussion->user->url }}">{{ $discussion->user->name }}</a>
                 </span>
                 <div class="dot-separator"></div>
                 <span class="discussion__details__date">
-                    <time title="{{ $discussion['human_date'] }}">{{ $discussion['relative_date'] }}</time>
+                    <time title="{{ $discussion->human_date }}">{{ $discussion->relative_date }}</time>
                 </span>
                 <div class="dot-separator"></div>
                 <div class="discussion__details__replies">
-                    <i class="icon is-small ion-md-chatbubbles"></i>
+                    <span class="icon">
+                        <i class="fas fa-comment"></i>
+                    </span>
                     <span>{{ $discussion->replies_count }}</span>
                 </div>
                 <div class="discussion__details__upvotes">
-                    <i class="icon is-small ion-md-thumbs-up"></i>
+                    <span class="icon">
+                        <i class="fas fa-thumbs-up"></i>
+                    </span>
                     <span>{{ $discussion->upvotes_count }}</span>
                 </div>
             </div>
+            @if(!isset($isStickyDiscussions))
             <p class="discussion__excerpt">{{ $discussion->excerpt }}</p>
+            @endif
         </div>
     </li>
     @endforeach
 </ul>
 
-@if(!isset($isRandomDiscussions))
+@if(!isset($isRandomDiscussions) && !isset($isStickyDiscussions))
 {{ $discussions->links('partials.pagination-simple') }}
 @endif

@@ -217,15 +217,31 @@ body {
 }
 
 ul.discussions {
+   &.is-sticky {
+       border-bottom: 4px solid #f1f0f0;
+       padding-bottom: 5px;
+   }
    .discussion {
        padding: 15px;
        position: relative;
        &:not(:last-child) { border-bottom: 1px solid #f1f0f0 }
-       &:first-child { padding-top: 0 }
+       &__sticky {
+           background-color: #db2828;
+           border-radius: 50%;
+           color: #fff;
+           display: flex;
+           position: absolute;
+           font-size: .8rem;
+           height: 20px;
+           left: 58px;
+           top: 19px;
+           width: 20px;
+           z-index: 3;
+           .icon { margin: 0 auto }
+       }
        &__avatar {
            float: left;
-           margin: 5px;
-           margin-right: 15px;
+           margin: 5px 5px 5px 15px;
            position: absolute;
            left: 0;
            img {

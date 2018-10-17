@@ -13,11 +13,16 @@ class CategoryController extends Controller
 
         /** @var \CreadoresIndie\Models\Category $category */
         $category = $this->getCategoryBySlug($categorySlug);
-        $discussions = $category->discussions()
-            ->with(['category', 'user'])
+        $discussions = $category->discussions()->noSticky()
+            ->with('user')
             ->latest()
             ->paginate();
 
-        return view('front.category.show', compact('category', 'discussions'));
+        $stickyDiscussions = $category->discussions()->sticky()
+            ->with('user')
+            ->latest()
+            ->get();
+
+        return view('front.category.show', compact('category', 'discussions', 'stickyDiscussions'));
     }
 }

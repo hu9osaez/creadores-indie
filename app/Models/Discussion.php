@@ -21,7 +21,8 @@ class Discussion extends Model
     ];
 
     protected $casts = [
-        'has_social_preview' => 'boolean'
+        'has_social_preview' => 'boolean',
+        'sticky' => 'boolean'
     ];
 
     protected $dates = [
@@ -57,6 +58,17 @@ class Discussion extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    /**
+     * @param Category|null $category
+     * @return string
+     */
+    public function url($category = null)
+    {
+        $category = is_null($category) ? $this->category : $category;
+
+        return route('front::discussion.show', [$category->slug, $this->slug]);
     }
 
     /** Custom attributes */
@@ -145,5 +157,25 @@ class Discussion extends Model
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user');
+    }
+
+    /** Scopes **/
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeSticky($query)
+    {
+        return $query->whereSticky(true);
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @return \Illuminate\Database\Eloquent\Builder
+     */
+    public function scopeNoSticky($query)
+    {
+        return $query->whereSticky(false);
     }
 }

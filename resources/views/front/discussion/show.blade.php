@@ -91,7 +91,9 @@ $(document).ready(function () {
                                 <div class="likes">
                                     @php($upvoted = $discussion->isUpvotedBy($loggedInUser))
                                     <button class="button btn-upvote {{ $upvoted ? 'btn-upvote--upvoted' : '' }}" id="js--btn-upvote">
-                                        <i class="icon ion-md-thumbs-up"></i>
+                                        <span class="icon">
+                                            <i class="fas fa-thumbs-up"></i>
+                                        </span>
                                         <span>{{ $discussion->upvotes_count }}</span>
                                     </button>
                                 </div>
@@ -99,12 +101,16 @@ $(document).ready(function () {
                                     <ul>
                                         <li>
                                             <a class="button facebook" href="{{ $discussion->getShareUrl('facebook') }}" target="_blank" rel="noopener" title="Compartir en Facebook">
-                                                <i class="icon ion-logo-facebook"></i>
+                                                <span class="icon">
+                                                    <i class="fab fa-facebook-f"></i>
+                                                </span>
                                             </a>
                                         </li>
                                         <li>
                                             <a class="button twitter" href="{{ $discussion->getShareUrl('twitter') }}" target="_blank" rel="noopener" title="Compartir en Twitter">
-                                                <i class="icon ion-logo-twitter"></i>
+                                                <span class="icon">
+                                                    <i class="fab fa-twitter"></i>
+                                                </span>
                                             </a>
                                         </li>
                                     </ul>

@@ -19,7 +19,9 @@
                     {{ html()->form('GET', route('front::search'))->open() }}
                     <div class="control has-icons-left">
                         {{ html()->text('q', request()->query('q'))->class('input')->placeholder('¿Qué estás buscando?')->required() }}
-                        <i class="icon ion-md-search"></i>
+                        <span class="icon">
+                            <i class="fas fa-search"></i>
+                        </span>
                     </div>
                     {{ html()->form()->close() }}
                 </div>

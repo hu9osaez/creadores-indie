@@ -14,7 +14,15 @@
                     <div class="category-viewing__circle" style="background-color: {{ $category->bg_color }}"></div>
                     Explorando los temas en "{{ $category->name }}"
                 </div>
-                @include('front.partials.loop-discussions')
+                @includeWhen($stickyDiscussions->isNotEmpty(), 'front.partials.loop-discussions', [
+                    'category' => $category,
+                    'discussions' => $stickyDiscussions,
+                    'isStickyDiscussions' => true
+                ])
+                @include('front.partials.loop-discussions', [
+                    'category' => $category,
+                    'discussions' => $discussions
+                ])
             </div>
         </div>
     </div>

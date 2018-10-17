@@ -15,7 +15,9 @@
                     <li class="dot-separator"></li>
                     <li>
                         <a href="https://twitter.com/CreadoresIndie" target="_blank">
-                            <i class="icon ion-logo-twitter"></i>
+                            <span class="icon">
+                                <i class="fab fa-twitter"></i>
+                            </span>
                         </a>
                     </li>
                 </ul>
