@@ -17,6 +17,7 @@ class Kernel extends HttpKernel
         \CreadoresIndie\Http\Middleware\TrimStrings::class,
         \Illuminate\Foundation\Http\Middleware\ConvertEmptyStringsToNull::class,
         \CreadoresIndie\Http\Middleware\TrustProxies::class,
+        \Nckg\Minify\Middleware\MinifyResponse::class
     ];
 
     /**

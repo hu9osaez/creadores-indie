@@ -17,6 +17,7 @@
             btns: [
                 ['strong', 'em', 'underline', 'del'],
                 ['blockquote'],
+                ['unorderedList', 'orderedList'],
                 ['link', 'insertImage']
             ]
         });

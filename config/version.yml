@@ -3,7 +3,7 @@ blade_directive: version
 current:
     major: 1
     minor: 0
-    patch: 0
+    patch: 1
     format: '{$major}.{$minor}.{$patch}'
     git_absorb: false
 cache:
@@ -12,7 +12,7 @@ cache:
     time: 525600
 build:
     mode: number
-    number: 20181012
+    number: 20181013
     length: 8
     increment_by: 1
     git_absorb: false
