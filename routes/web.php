@@ -40,7 +40,9 @@ Route::group([
 
         Route::get('@{username}', 'ProfileController@show')->name('profile.show');
 
-        Route::get('{category}', 'CategoryController@show')->name('category.show');
+        Route::get('{category}', 'CategoryController@show')
+            ->where('category', '[a-z]+')
+            ->name('category.show');
         Route::get('{category}/{slug}', 'DiscussionController@show')->name('discussion.show');
     });
 });
