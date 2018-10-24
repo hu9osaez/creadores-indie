@@ -75,9 +75,11 @@ $(document).ready(function () {
                             <div class="singleDiscussion__head">
                                 <div class="singleDiscussion__head__category">
                                     <span>Publicado en</span>
+                                    <h3>
                                     {{ html()->a(route('front::category.show', $category->slug), $category->name)
                                         ->style("background-color: {$category->bg_color}; color: {$category->text_color}")
                                     }}
+                                    </h3>
                                 </div>
                                 <div class="singleDiscussion__head__date">
                                     <span>{{ $discussion->human_date_alt }}</span>

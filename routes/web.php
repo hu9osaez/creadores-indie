@@ -37,6 +37,7 @@ Route::group([
         });
 
         Route::get('p/{slug}', 'PageController@show')->name('page.show');
+        Route::get('s/{slug}', 'StoryController@show')->name('story.show');
 
         Route::get('@{username}', 'ProfileController@show')->name('profile.show');
 

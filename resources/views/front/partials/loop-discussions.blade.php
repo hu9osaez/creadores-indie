@@ -12,10 +12,10 @@
         </div>
         @endif
         <div class="discussion__avatar">
-            <img src="{{ $discussion->user->avatar_url }}" >
+            <img src="{{ $discussion->user->avatar_url }}" alt="">
         </div>
         <div class="discussion__content">
-            <a class="discussion__title" href="{{ $url }}">{{ $discussion->title }}</a>
+            <h2><a class="discussion__title" href="{{ $url }}">{{ $discussion->title }}</a></h2>
             <div class="discussion__details">
                 {{ html()->a($cat->url, $cat->name)
                         ->class('discussion__details__category')

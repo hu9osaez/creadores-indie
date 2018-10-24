@@ -10,10 +10,12 @@
     <ul>
     @foreach($categories as $category)
         <li>
-            <a href="{{ route('front::category.show', $category->slug) }}">
-                <span class="circle" style="background-color: {{ $category->color }}"></span>
-                {{ $category->name }}
-            </a>
+            <h3>
+                <a href="{{ route('front::category.show', $category->slug) }}">
+                    <span class="circle" style="background-color: {{ $category->color }}"></span>
+                    {{ $category->name }}
+                </a>
+            </h3>
         </li>
     @endforeach
     </ul>
