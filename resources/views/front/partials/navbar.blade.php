@@ -27,6 +27,12 @@
                 </div>
             </div>
             <div class="navbar-end">
+                <a href="{{ route('front::stories.index') }}" class="navbar-item">
+                    <span class="badge">New</span>
+                    Historias
+                </a>
+                <div class="navbar-item navbar-item--separator">
+                </div>
                 @auth
                 <div class="navbar-item has-dropdown is-hoverable">
                     <div class="navbar-item item-user">

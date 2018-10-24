@@ -15,6 +15,8 @@ class Story extends Model
         'slug'
     ];
 
+    protected $perPage = 10;
+
     public function getParsedContentAttribute()
     {
         return Markdown::convertToHtml($this->content);

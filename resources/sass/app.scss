@@ -68,6 +68,32 @@ body {
     }
 }
 
+.navbar-item {
+    position: relative;
+    &--separator {
+        padding: 0.5rem 0.4rem;
+        position: relative;
+        &:before {
+            background-color: $grey-lighter;
+            content: '';
+            height: 25px;
+            width: 2px;
+        }
+    }
+    .badge {
+        background: linear-gradient(90deg, #f15c41, #292929);
+        border-radius: 2px;
+        color: #fff;
+        font-size: .5rem;
+        font-weight: 700;
+        padding: .1rem .2rem;
+        position: absolute;
+        top: 5px;
+        right: 4px;
+        text-transform: uppercase;
+    }
+}
+
 .item-user .avatar {
     border: 2px solid lighten($grey-lighter, 5%);
     border-radius: 50%;
@@ -81,12 +107,14 @@ body {
     width: 37px;
 }
 
-.topHome {
-    background-color: #f5f7ff;
-    border-top: 1px solid darken(#f5f7ff, 1%);
-    border-bottom: 1px solid darken(#f5f7ff, 1%);
-    padding: 2rem 1.5rem;
-    position: relative;
+.section {
+    &--is-top {
+        background-color: #f5f7ff;
+        border-top: 1px solid darken(#f5f7ff, 1%);
+        border-bottom: 1px solid darken(#f5f7ff, 1%);
+        padding: 2rem 1.5rem;
+        position: relative;
+    }
 }
 
 .content blockquote { padding: .8em 1em }

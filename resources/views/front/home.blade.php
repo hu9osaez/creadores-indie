@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="topHome" id="section-top-home">
+<section class="section section--is-top">
     <div class="container">
         <p class="subtitle has-text-centered">
             Conecta, comparte y aprende de otros <strong>{{ strtolower(config('app.name')) }}</strong>
