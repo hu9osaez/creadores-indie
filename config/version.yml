@@ -12,7 +12,7 @@ cache:
     time: 525600
 build:
     mode: number
-    number: 20181015
+    number: 20181016
     length: 8
     increment_by: 1
     git_absorb: false
