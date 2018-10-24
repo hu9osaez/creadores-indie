@@ -28,7 +28,7 @@
 
 @yield('content')
 
-@cache('front.partials.footer')
+@include('front.partials.footer')
 
 @if (config('app.env') == 'production')
 <script>

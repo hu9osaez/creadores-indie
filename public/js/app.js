@@ -8,4 +8,15 @@ $(document).ready(function () {
         self.toggleClass('is-active');
         $target.toggleClass('is-active');
     });
+
+    $('.feedback-box .feedback-box__title').bind('click', function(e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        toggleFeedbackBox();
+    });
+
+    function toggleFeedbackBox() {
+        $('.feedback-box').toggleClass('opened');
+    }
 });
