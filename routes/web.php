@@ -21,8 +21,6 @@ Route::group([
     Route::name('front::')->group(function () {
         Route::get('/', 'HomeController@index')->name('home');
 
-        Route::get('search', 'SearchController@search')->name('search');
-
         Route::middleware('auth')->group(function () {
             Route::post('ajax/discussion/upvote/{encodedId}', 'UpvoteController@toggleUpvoteDiscussion')
                 ->name('ajax.discussion.upvote');
@@ -35,6 +33,13 @@ Route::group([
 
             Route::post('{category}/{slug}/reply', 'ReplyController@store')->name('reply.store');
         });
+
+        Route::get('search', 'SearchController@search')->name('search');
+
+        Route::get('sitemap.xml', 'SitemapsController@index');
+        Route::get('sitemap-categories.xml', 'SitemapsController@categories')->name('sitemap.categories');
+        Route::get('sitemap-discussions.xml', 'SitemapsController@discussions')->name('sitemap.discussions');
+        Route::get('sitemap-users.xml', 'SitemapsController@users')->name('sitemap.users');
 
         Route::get('p/{slug}', 'PageController@show')->name('page.show');
         Route::get('s/{slug}', 'StoryController@show')->name('story.show');
