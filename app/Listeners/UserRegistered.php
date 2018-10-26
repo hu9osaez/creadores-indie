@@ -30,6 +30,6 @@ class UserRegistered
                 'browser_name' => $user_agent_parser->browser->name ?? 'unknown',
                 'browser_version' => optional($user_agent_parser->browser->version)->toString() ?? 'unknown',
             ])
-            ->log('user_registered');
+            ->log('auth::register');
     }
 }

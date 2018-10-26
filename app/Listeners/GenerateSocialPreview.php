@@ -44,7 +44,7 @@ class GenerateSocialPreview
                 $draw->background('#f5f7ff');
                 $draw->border(3, '#f0f3ff');
             })
-            ->rectangle($centerX-100, 10, 530, 50,  function ($draw) {
+            ->rectangle($centerX-100, 10, 530, 50, function ($draw) {
                 $draw->background('#f15c41');
             })
             ->text(strtoupper(config('app.name')), $centerX-80, 38, function ($font) {
@@ -52,7 +52,7 @@ class GenerateSocialPreview
                 $font->size(20);
                 $font->color('#ffffff');
             })
-            ->text('#' . $category->name, $centerX, 100, function ($font) use($category) {
+            ->text('#' . $category->name, $centerX, 100, function ($font) {
                 $font->file(resource_path('fonts') . '/FiraSans-Bold.ttf');
                 $font->size(22);
                 $font->color('#4a4a4a');
@@ -70,9 +70,8 @@ class GenerateSocialPreview
             })
             ->insert($avatar, 'bottom-left', 85, 70);
 
-        foreach ($textLines as $line)
-        {
-            $image->text($line, $centerX, $y, function($font) use ($fontSize) {
+        foreach ($textLines as $line) {
+            $image->text($line, $centerX, $y, function ($font) use ($fontSize) {
                 $font->file(resource_path('fonts') . '/FiraSans-Bold.ttf');
                 $font->size($fontSize);
                 $font->align('center');

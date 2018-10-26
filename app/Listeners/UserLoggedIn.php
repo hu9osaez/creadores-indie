@@ -30,6 +30,6 @@ class UserLoggedIn
                 'browser_name' => $user_agent_parser->browser->name ?? 'unknown',
                 'browser_version' => optional($user_agent_parser->browser->version)->toString() ?? 'unknown',
             ])
-            ->log('user_logged_in');
+            ->log('auth::login');
     }
 }

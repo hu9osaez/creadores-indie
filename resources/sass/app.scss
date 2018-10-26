@@ -452,14 +452,18 @@ ul.discussions {
     padding: 0.5rem 0.75rem;
     position: fixed;
     z-index: 1000;
-    * {
-        display: none!important;
+    + * {
+        display: none;
         box-sizing: border-box;
     }
     &.opened {
-        min-height: 16em;
+        height: 100%;
+        max-height: 21em;
         * {
-            display: block!important;
+            display: block;
+        }
+        .success {
+            display: flex;
         }
     }
     &__title {
@@ -468,10 +472,30 @@ ul.discussions {
         display: block!important;
         font-size: .9rem;
         font-weight: 700;
+        position: relative;
+        .icon {
+            background-color: #c6c2be;
+            border-radius: 2px;
+            color: #fff;
+            display: flex;
+            font-size: .9rem;
+            padding: 2px;
+            position: absolute;
+            right: -1px;
+            top: -1px;
+        }
     }
     &__body {
+        display: none;
         padding: .7rem 0 1rem 0;
         p { margin-bottom: 8px }
+        textarea { resize: none }
+        &.success {
+            align-items: center;
+            display: none;
+            height: 100%;
+            text-align: center;
+        }
     }
 }
 

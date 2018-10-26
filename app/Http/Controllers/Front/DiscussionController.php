@@ -39,7 +39,7 @@ class DiscussionController extends Controller
         $this->seo()->twitter()->setTitle($discussion->title);
         $this->seo()->twitter()->setDescription($discussion->excerpt);
 
-        if($discussion->has_social_preview) {
+        if ($discussion->has_social_preview) {
             $this->seo()->opengraph()->addImage($discussion->social_preview_url);
             \SEO::twitter()->setImage($discussion->social_preview_url);
         }
