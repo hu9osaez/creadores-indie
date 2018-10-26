@@ -1,3 +1,38 @@
+<div class="feedback-box">
+    <div class="feedback-box__title">
+        <span>¿Tienes algún comentario?</span>
+        <span class="icon fa fa-chevron-down"></span>
+    </div>
+    <div class="feedback-box__body">
+        <div id="feedback-form">
+            <p class="has-text-dark is-size-7">
+                Hazme saber si tienes un problema o una sugerencia sobre {{ config('app.name') }}.
+            </p>
+            <div class="field">
+                <div class="control">
+                    {{ html()->text('name')->class('input is-small')->placeholder('Nombre')->required() }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{ html()->email('email')->class('input is-small')->placeholder('Correo electrónico')->required() }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    {{ html()->textarea('message')->class('textarea is-small')->placeholder('Mensaje')->required() }}
+                </div>
+            </div>
+            <div class="field">
+                <div class="control">
+                    <button class="button is-outlined is-small is-primary" type="button">Enviar</button>
+                </div>
+            </div>
+        </div>
+        <p id="success"></p>
+    </div>
+</div>
+
 <footer>
     <div class="container">
         <div class="columns">

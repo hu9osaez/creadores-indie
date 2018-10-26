@@ -21,6 +21,13 @@
     <link href="{{ asset('css/app.css') . '?v=' . Version::build() }}" rel="stylesheet">
     @stack('custom-css')
 
+    <script>
+        window.CI = @json([
+            'csrfToken' => csrf_token(),
+            'feedbackUrl' => route('front::ajax.feedback')
+        ])
+    </script>
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
 </head>
 <body>
@@ -28,7 +35,7 @@
 
 @yield('content')
 
-@cache('front.partials.footer')
+@include('front.partials.footer')
 
 @if (config('app.env') == 'production')
 <script>

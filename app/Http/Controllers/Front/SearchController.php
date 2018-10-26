@@ -1,8 +1,8 @@
 <?php namespace CreadoresIndie\Http\Controllers\Front;
 
+use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Models\Discussion;
 use Illuminate\Http\Request;
-use CreadoresIndie\Http\Controllers\Controller;
 
 class SearchController extends Controller
 {

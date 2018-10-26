@@ -45,7 +45,7 @@ class SitemapsController extends Controller
                 '0.8'
             );
 
-            if($discussion->has_social_preview) {
+            if ($discussion->has_social_preview) {
                 $tag->addImage($discussion->social_preview_url, $discussion->title);
             }
         }
@@ -68,5 +68,4 @@ class SitemapsController extends Controller
 
         return Sitemap::render();
     }
-
 }
