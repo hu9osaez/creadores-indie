@@ -3,7 +3,7 @@
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('front::home') }}">
                 <div class="logo">
-                    <span>CI</span>
+                    <h1>{{ config('app.name') }}</h1>
                 </div>
             </a>
 

@@ -12,7 +12,7 @@
         </div>
         @endif
         <div class="discussion__avatar">
-            <img src="{{ $discussion->user->avatar_url }}" alt="">
+            <img src="{{ $discussion->user->avatar_url }}" alt="Avatar de {{ $discussion->user->name }}">
         </div>
         <div class="discussion__content">
             <h2><a class="discussion__title" href="{{ $url }}">{{ $discussion->title }}</a></h2>
