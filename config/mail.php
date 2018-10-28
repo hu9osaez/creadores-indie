@@ -60,6 +60,8 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Creadores Indie'),
     ],
 
+    'contact_address' => env('CONTACT_ADDRESS', 'hugo@creadoresindie.com'),
+
     /*
     |--------------------------------------------------------------------------
     | E-Mail Encryption Protocol

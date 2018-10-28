@@ -17,7 +17,7 @@ class AjaxController extends Controller
 
         try {
             Mail::raw($request->message, function ($message) use ($request) {
-                $message->to(env('CONTACT_ADDRESS'));
+                $message->to(config('mail.contact_address'));
                 $message->replyTo($request->email);
                 $message->subject("Feedback de [{$request->name}]");
             });
