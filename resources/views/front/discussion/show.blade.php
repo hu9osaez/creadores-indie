@@ -32,7 +32,7 @@ $(document).ready(function () {
                         break;
                 }
 
-                $btnUpvote.find('span').html(data.upvotes_count);
+                $btnUpvote.find('#upvotes-count').html(data.upvotes_count);
             }
         });
     });
@@ -96,7 +96,7 @@ $(document).ready(function () {
                                         <span class="icon">
                                             <i class="fas fa-thumbs-up"></i>
                                         </span>
-                                        <span>{{ $discussion->upvotes_count }}</span>
+                                        <span id="upvotes-count">{{ $discussion->upvotes_count }}</span>
                                     </button>
                                 </div>
                                 <div class="socialButtons">
