@@ -26,7 +26,7 @@
                 </span>
                 <div class="dot-separator"></div>
                 <span class="discussion__details__date">
-                    <time title="{{ $discussion->human_date }}">{{ $discussion->relative_date }}</time>
+                    <time datetime="{{ $discussion->created_at }}" title="{{ $discussion->human_date }}">{{ $discussion->relative_date }}</time>
                 </span>
                 <div class="dot-separator"></div>
                 <div class="discussion__details__replies">
