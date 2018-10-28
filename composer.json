@@ -26,6 +26,7 @@
         "pragmarx/version": "^0.2.8",
         "qcod/laravel-imageup": "^1.0",
         "santigarcor/laratrust": "5.0.*",
+        "sentry/sentry-laravel": "^0.10.0",
         "spatie/laravel-activitylog": "^2.8",
         "spatie/laravel-html": "^2.19",
         "spatie/laravel-partialcache": "^1.3",
