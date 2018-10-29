@@ -33,6 +33,15 @@
                         <img class="avatar" src="{{ $loggedInUser->avatar_url }}">
                     </div>
                     <div class="navbar-dropdown is-boxed is-right">
+                        @if($loggedInUser->isAn('admin'))
+                        <a class="navbar-item" href="{{ route('radar::home') }}">
+                            <span class="icon">
+                                <i class="fas fa-cogs"></i>
+                            </span>
+                            <span>ACP Radar</span>
+                        </a>
+                        <hr class="navbar-divider">
+                        @endif
                         {{ html()->a($loggedInUser->url, 'Mi perfil')->class('navbar-item') }}
                         {{ html()->a(route('front::profile.settings.show'), 'Configuración')->class('navbar-item') }}
                         <hr class="navbar-divider">
