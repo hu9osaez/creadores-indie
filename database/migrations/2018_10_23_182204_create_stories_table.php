@@ -15,15 +15,23 @@ class CreateStoriesTable extends Migration
     {
         Schema::create('stories', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('id_user')->nullable();
+            $table->integer('id_user')->unsigned()->nullable();
             $table->string('title');
+            $table->string('subtitle')->nullable();
             $table->text('content');
             $table->date('start_date')->nullable();
+            $table->string('mrr')->nullable(); // Monthly recurring revenue
             $table->string('slug')->unique();
             $table->timestamps();
             $table->softDeletes();
 
             $table->index('slug');
+
+            $table->foreign('id_user')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
         });
     }
 

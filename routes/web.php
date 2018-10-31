@@ -30,6 +30,7 @@ Route::group([
         Route::get('sitemap.xml', 'SitemapsController@index');
         Route::get('sitemap-categories.xml', 'SitemapsController@categories')->name('sitemap.categories');
         Route::get('sitemap-discussions.xml', 'SitemapsController@discussions')->name('sitemap.discussions');
+        Route::get('sitemap-stories.xml', 'SitemapsController@stories')->name('sitemap.stories');
         Route::get('sitemap-users.xml', 'SitemapsController@users')->name('sitemap.users');
 
         Route::get('p/{slug}', 'PageController@show')->name('page.show');

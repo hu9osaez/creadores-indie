@@ -6,6 +6,6 @@ class HomeController extends Controller
 {
     public function index()
     {
-        dd('Admin');
+        return view('admin.home');
     }
 }

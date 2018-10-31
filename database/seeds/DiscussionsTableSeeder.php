@@ -16,7 +16,7 @@ class DiscussionsTableSeeder extends Seeder
     public function run()
     {
         $categories = Category::all();
-        $user = User::whereEmail('hu9osaez@gmail.com')->first();
+        $user = User::whereEmail('admin@gmail.com')->first();
 
         factory(Discussion::class, 50)
             ->make()

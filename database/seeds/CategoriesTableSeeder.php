@@ -27,11 +27,6 @@ class CategoriesTableSeeder extends Seeder
                 'order' => 3,
                 'color' => '#1ABC9C'
             ],
-            [
-                'name' => 'Retroalimentación',
-                'order' => 4,
-                'color' => '#F39C12'
-            ],
         ];
 
         foreach ($categories as $category) {

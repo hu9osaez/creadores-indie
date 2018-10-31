@@ -3,6 +3,7 @@
 use CreadoresIndie\Http\Controllers\Controller;
 use CreadoresIndie\Models\Category;
 use CreadoresIndie\Models\Discussion;
+use CreadoresIndie\Models\Story;
 use CreadoresIndie\Models\User;
 use Sitemap;
 
@@ -12,6 +13,7 @@ class SitemapsController extends Controller
     {
         Sitemap::addSitemap(route('front::sitemap.categories'));
         Sitemap::addSitemap(route('front::sitemap.discussions'));
+        Sitemap::addSitemap(route('front::sitemap.stories'));
         Sitemap::addSitemap(route('front::sitemap.users'));
 
         return Sitemap::index();
@@ -53,6 +55,22 @@ class SitemapsController extends Controller
         return Sitemap::render();
     }
 
+    public function stories()
+    {
+        $stories = Story::latest()->get();
+
+        foreach ($stories as $story) {
+            Sitemap::addTag(
+                $story->url,
+                $story->updated_at,
+                'daily',
+                '0.8'
+            );
+        }
+
+        return Sitemap::render();
+    }
+
     public function users()
     {
         $users = User::latest()->get();
@@ -61,7 +79,7 @@ class SitemapsController extends Controller
             Sitemap::addTag(
                 $user->url,
                 $user->updated_at,
-                'weekly',
+                'daily',
                 '0.6'
             );
         }
