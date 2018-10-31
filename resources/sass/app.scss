@@ -7,6 +7,8 @@
 // Bulma
 @import '~bulma/bulma';
 
+@import 'admin';
+
 body {
     background-color: #fff;
     font-family: 'Fira Sans', sans-serif;
@@ -69,6 +71,32 @@ body {
     }
 }
 
+.navbar-item {
+    position: relative;
+    &--separator {
+        padding: 0.5rem 0.4rem;
+        position: relative;
+        &:before {
+            background-color: $grey-lighter;
+            content: '';
+            height: 25px;
+            width: 2px;
+        }
+    }
+    .badge {
+        background: linear-gradient(90deg, #f15c41, #292929);
+        border-radius: 2px;
+        color: #fff;
+        font-size: .5rem;
+        font-weight: 700;
+        padding: .1rem .2rem;
+        position: absolute;
+        top: 5px;
+        right: 4px;
+        text-transform: uppercase;
+    }
+}
+
 .item-user .avatar {
     border: 2px solid lighten($grey-lighter, 5%);
     border-radius: 50%;
@@ -82,12 +110,14 @@ body {
     width: 37px;
 }
 
-.topHome {
-    background-color: #f5f7ff;
-    border-top: 1px solid darken(#f5f7ff, 1%);
-    border-bottom: 1px solid darken(#f5f7ff, 1%);
-    padding: 2rem 1.5rem;
-    position: relative;
+.section {
+    &--is-top {
+        background-color: #f5f7ff;
+        border-top: 1px solid darken(#f5f7ff, 1%);
+        border-bottom: 1px solid darken(#f5f7ff, 1%);
+        padding: 2rem 1.5rem;
+        position: relative;
+    }
 }
 
 .content blockquote { padding: .8em 1em }
@@ -98,6 +128,10 @@ body {
     border: 2px solid $grey-lighter;
     display: block;
     &:not(:last-child) { margin-bottom: 1rem }
+    &--story {
+        transition: transform 200ms;
+        &:hover { transform: scale(1.05) }
+    }
     &__body { padding: 1rem }
     &__user {
         display: inline-block;
@@ -433,6 +467,47 @@ ul.discussions {
     }
 }
 
+.stories {
+    .story {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        max-height: 80px;
+        width: 100%;
+        &__avatar {
+            text-align: center;
+            width: 10%;
+            img {
+                border: 2px solid lighten($grey-lighter, 5%);
+                border-radius: 50%;
+                width: 70px;
+                height: 70px;
+                margin-top: 5px;
+            }
+        }
+        &__content {
+            padding-left: 2rem;
+            width: 100%;
+            .story-title {
+                color: $grey;
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 1rem;
+            }
+            .extra {
+                &:after {
+                    content: '';
+                    display: table;
+                    clear: both;
+                }
+                .user { float: left }
+                .start-date, .mrr { float: right }
+                .mrr { margin-left: 10px }
+            }
+        }
+    }
+}
+
 .trumbowyg-box, .trumbowyg-editor { min-height: 120px!important }
 
 .field-recaptcha { text-align: center }
@@ -505,8 +580,16 @@ footer {
     display: block;
     font-size: .9rem;
     padding: 2.5rem 0;
+    .copyright .heart {
+        animation: beat .50s infinite alternate;
+        display: inline-block;
+        margin-left: 3px;
+        transform-origin: center;
+    }
     .links {
         float: right;
         li { display: inline-block }
     }
 }
+
+@keyframes beat { to { transform: scale(1.1) } }

@@ -1,6 +1,8 @@
 <?php namespace CreadoresIndie\Listeners;
 
+use CreadoresIndie\Notifications\UserRegistered as UserRegisteredNotification;
 use Illuminate\Auth\Events\Registered;
+use Notification;
 use Spatie\Referer\Referer;
 
 class UserRegistered
@@ -31,5 +33,8 @@ class UserRegistered
                 'browser_version' => optional($user_agent_parser->browser->version)->toString() ?? 'unknown',
             ])
             ->log('auth::register');
+
+        Notification::route('slack', config('services.slack.url_notifications'))
+            ->notify(new UserRegisteredNotification($event->user));
     }
 }

@@ -40,6 +40,10 @@
                 <p class="copyright">
                     &copy; {{ now()->year }} <strong>{{ config('app.name') }}</strong> por
                     <a href="https://twitter.com/hu9osaez" target="_blank">@hu9osaez</a>
+                    <span class="dot-separator"></span>
+                    <a href="https://github.com/hu9osaez/creadores-indie" target="_blank">
+                        Open source <span class="heart">❤</span>
+                    </a>
                 </p>
             </div>
             <div class="column">

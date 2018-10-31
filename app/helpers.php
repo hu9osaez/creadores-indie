@@ -1,5 +1,19 @@
 <?php
 
+if (! function_exists('carbonize')) {
+    /**
+     * Create a Carbon object from a string
+     *
+     * @param string $timeString
+     *
+     * @return \Carbon\Carbon
+     */
+    function carbonize($timeString = null)
+    {
+        return new \Carbon\Carbon($timeString);
+    }
+}
+
 if (!function_exists('getContrastColor')) {
     // Taken from https://stackoverflow.com/a/42921358
     function getContrastColor($hexcolor)

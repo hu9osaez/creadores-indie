@@ -1,16 +1,5 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 Auth::routes();
 
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
@@ -41,10 +30,13 @@ Route::group([
         Route::get('sitemap.xml', 'SitemapsController@index');
         Route::get('sitemap-categories.xml', 'SitemapsController@categories')->name('sitemap.categories');
         Route::get('sitemap-discussions.xml', 'SitemapsController@discussions')->name('sitemap.discussions');
+        Route::get('sitemap-stories.xml', 'SitemapsController@stories')->name('sitemap.stories');
         Route::get('sitemap-users.xml', 'SitemapsController@users')->name('sitemap.users');
 
         Route::get('p/{slug}', 'PageController@show')->name('page.show');
-        Route::get('s/{slug}', 'StoryController@show')->name('story.show');
+
+        Route::get('stories', 'StoryController@index')->name('stories.index');
+        Route::get('stories/{slug}', 'StoryController@show')->name('stories.show');
 
         Route::get('@{username}', 'ProfileController@show')->name('profile.show');
 
