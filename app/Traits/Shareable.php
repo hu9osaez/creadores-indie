@@ -8,7 +8,7 @@ trait Shareable
 
         if ($type == 'facebook') {
             $query = urldecode(http_build_query([
-                //'app_id' => env('FACEBOOK_APP_ID'),
+                'app_id' => env('FACEBOOK_APP_ID'),
                 'href' => $url,
                 'display' => 'page',
                 'title' => urlencode($this->{array_get($this->shareOptions, 'columns.title')})
