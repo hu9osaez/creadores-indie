@@ -40,7 +40,7 @@ body {
 
 .navbar {
     box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1);
-    .logo {
+    /*.logo {
         display: flex;
         border: 3px solid $primary;
         height: 40px;
@@ -57,6 +57,9 @@ body {
             text-transform: uppercase;
             width: 100%;
         }
+    }*/
+    .navbar-brand img {
+        max-height: 2.5rem!important;
     }
     .btn-register {
         display: inline-flex;

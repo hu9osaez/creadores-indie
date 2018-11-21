@@ -2,9 +2,7 @@
     <div class="container">
         <div class="navbar-brand">
             <a class="navbar-item" href="{{ route('front::home') }}">
-                <div class="logo">
-                    <h1>{{ config('app.name') }}</h1>
-                </div>
+                <img src="{{ asset('img/logo.png') }}">
             </a>
 
             <a role="button" class="navbar-burger" id="burger-navbar" data-target="navbar" aria-label="menu" aria-expanded="false">
