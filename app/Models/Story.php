@@ -1,12 +1,12 @@
 <?php namespace CreadoresIndie\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Jenssegers\Date\Date;
 use Markdown;
+use Moloquent;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Story extends Model
+class Story extends Moloquent
 {
     use HasSlug;
 

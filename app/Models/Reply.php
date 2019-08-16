@@ -1,9 +1,9 @@
 <?php namespace CreadoresIndie\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Moloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Reply extends Model
+class Reply extends Moloquent
 {
     use SoftDeletes;
 

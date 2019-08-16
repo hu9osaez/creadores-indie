@@ -151,6 +151,8 @@ return [
          * Package Service Providers...
          */
 
+        Jenssegers\Mongodb\MongodbServiceProvider::class,
+
         /*
          * Application Service Providers...
          */
@@ -211,7 +213,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
-        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class
+        'Markdown' => GrahamCampbell\Markdown\Facades\Markdown::class,
+        'Moloquent' => Jenssegers\Mongodb\Eloquent\Model::class,
     ],
 
 ];

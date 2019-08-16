@@ -2,15 +2,15 @@
 
 use CreadoresIndie\Traits\HasEncodedId;
 use CreadoresIndie\Traits\Shareable;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Str;
+use Moloquent;
 use Nicolaslopezj\Searchable\SearchableTrait;
 use Overtrue\LaravelFollow\Traits\CanBeVoted;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Discussion extends Model
+class Discussion extends Moloquent
 {
     use CanBeVoted, HasEncodedId, HasSlug, Shareable, SearchableTrait, SoftDeletes;
 

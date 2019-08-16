@@ -1,12 +1,12 @@
 <?php namespace CreadoresIndie\Models;
 
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Markdown;
+use Moloquent;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
-class Page extends Model
+class Page extends Moloquent
 {
     use HasSlug, SoftDeletes;
 

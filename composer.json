@@ -15,6 +15,7 @@
         "graham-campbell/markdown": "^11.0",
         "guzzlehttp/guzzle": "^6.3",
         "jenssegers/date": "^3.5",
+        "jenssegers/mongodb": "^3.5",
         "jenssegers/optimus": "^1.0",
         "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
@@ -80,8 +81,7 @@
         ],
         "helpers": [
             "@php artisan ide-helper:generate",
-            "@php artisan ide-helper:meta",
-            "@php artisan ide-helper:models"
+            "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
